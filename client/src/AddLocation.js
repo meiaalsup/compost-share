@@ -1,7 +1,7 @@
 import React from 'react';
 import './Search.css';
 
-class Search extends React.Component {
+class AddLocation extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -10,10 +10,10 @@ class Search extends React.Component {
         city: "Cambridge",
         state: "MA",
         zipcode: "02139"
-      }
+      },
       foodscraps: {
         vegetables: true
-      }
+      },
       availability: {
         monday: true,
         tuesday: true,
@@ -26,7 +26,7 @@ class Search extends React.Component {
     };
   }
 
-  search() {
+  addlocation() {
     console.log(this.state.query)
     let json = JSON.stringify({
       address: this.state.address,
