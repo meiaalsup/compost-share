@@ -57,5 +57,5 @@ Authors: Jena Alsup, Meena Rajan, Meia Alsup
 * Front End Upload Page
 * Front End Search Page
     * Google Maps component renderer
-* Login / users
+* Later: Login / users
 
