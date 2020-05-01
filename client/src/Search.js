@@ -5,22 +5,38 @@ class Search extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      query: "70 Massachusetts Ave",
+      address: {
+        street: "70 Massachusetts Ave",
+        city: "Cambridge",
+        state: "MA",
+        zipcode: "02139"
+      },
+      foodscraps: {
+        vegetables: true
+      },
+      availability: {
+        monday: true,
+        tuesday: true,
+        wednesday: true,
+        thursday: true,
+        friday: true,
+        saturday: true,
+        sunday: true,
+      },
     };
   }
 
   search() {
-    console.log(this.state.query)
-    let json = JSON.stringify({query: this.state.query});
+    let json = JSON.stringify(this.state);
     console.log(json)
-    fetch("http://localhost:3000/addlocation", {
+    fetch("http://localhost:3000/search", {
       method: "POST",
       body: json,
       headers: {
         "Content-Type": "application/json"
       },
     })
-      .then(response => response.json())
+      .then(response => response.text())
       .then(json => {
         console.log(json)
       })
@@ -45,4 +61,3 @@ class Search extends React.Component {
 
 
 export default Search;
-

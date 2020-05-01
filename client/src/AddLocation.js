@@ -26,11 +26,8 @@ class AddLocation extends React.Component {
     };
   }
 
-  addLocation() {
-    console.log(this.state.query)
-    let json = JSON.stringify({
-      address: this.state.address,
-    });
+  addlocation() {
+    let json = JSON.stringify(this.state) 
     console.log(json)
     fetch("http://localhost:3000/addlocation", {
       method: "POST",
