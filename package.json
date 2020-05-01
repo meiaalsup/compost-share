@@ -1,0 +1,24 @@
+{
+  "name": "compost-share",
+  "version": "1.0.0",
+  "description": "Cal Earth Hacks - Compost Sharing Map Authors: Jena Alsup, Meena Rajan, Meia Alsup",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meiaalsup/compost-share.git"
+  },
+  "author": "Jena Alsup, Meena Rajan, Meia Alsup",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/meiaalsup/compost-share/issues"
+  },
+  "homepage": "https://github.com/meiaalsup/compost-share#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongodb": "^3.5.7"
+  }
+}

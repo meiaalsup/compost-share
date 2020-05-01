@@ -51,3 +51,11 @@ Authors: Jena Alsup, Meena Rajan, Meia Alsup
         * hours / days available
 
 
+###
+* Database (fill in and read from)
+* Google Maps Distance API
+* Front End Upload Page
+* Front End Search Page
+    * Google Maps component renderer
+* Login / users
+
