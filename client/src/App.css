@@ -4,6 +4,7 @@
 
 
 .App-header {
+  font-family: "Arial Black", Gadget, sans-serif;
   background-color: #d2f8d2;
   min-height: 4vh;
   display: flex;
