@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Search from './Search';
 import AddLocation from './AddLocation';
+import MapUI from './MapUI';
 
 function App() {
   return (
@@ -10,9 +11,10 @@ function App() {
         <h1> Compost Share </h1>
       </header>
 
-      <Search /> 
+      <MapUI />
+      <Search />
       <p> </p>
-      <AddLocation /> 
+      <AddLocation />
     </div>
   );
 }
