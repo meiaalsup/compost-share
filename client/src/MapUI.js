@@ -28,19 +28,38 @@ class MapUI extends React.Component {
     })
   }
 
+  createMarker(location) {
+    
+    let marker = new window.google.maps.Marker({
+      position: location.address.latlng,
+      map: this.state.map,
+    });
+    marker.addListener('click', () => {
+      this.state.map.setZoom(8);
+      this.state.map.setCenter(marker.getPosition());
+      let infowindow = new window.google.maps.InfoWindow({      
+        content: location.address.street
+      })
+      infowindow.open(this.state.map, marker)
+      console.log("marker clicked")
+    })
+    
+    return marker
+  }
+
   addMarkers() {
     //this.map. // blah blah add markers
 
-    this.state.markers.forEach((marker) => {marker.setMap(null)})
+    console.log('in add markers: ' + this.props.locations[0])
+    this.state.markers.forEach(
+      (marker) => {marker.setMap(null)}
+    )
+
     this.state.map.setCenter(this.props.locations[0].address.latlng)
     this.setState({
-      markers: this.props.locations.map(
-        (location, index) => new window.google.maps.Marker({
-          position: location.address.latlng,
-          map: this.state.map,
-        })
-      )
+      markers: this.props.locations.map((location) => this.createMarker(location))
     });
+
 
   }
 

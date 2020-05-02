@@ -43,6 +43,7 @@ class Search extends React.Component {
 
   search() {
     let state = this.updateState()
+    // TODO: if nothing checked, add alert 
     let json = JSON.stringify(state)
     console.log(json)
     fetch("http://localhost:3000/search", {
