@@ -87,6 +87,11 @@ class AddLocation extends React.Component {
   render() {
     return ( 
       <div>
+            <div className="AddLocation">
+              <header className="AddLocation-header">
+                <h1> Add Location For Compost Drop Off </h1>
+              </header>
+            </div>
         <div>
           <form>
             <label htmlFor="add_street">Street:</label>
@@ -167,7 +172,7 @@ class AddLocation extends React.Component {
         </div>
        <button onClick={() => 
             this.addlocation()
-        }>addLocation</button>
+        }>Add Location</button>
 
       </div>
     )

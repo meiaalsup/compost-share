@@ -71,6 +71,11 @@ class Search extends React.Component {
   render() {
     return ( 
       <div>
+        <div className="Search">
+          <header className="Search-header">
+             <h1> Search For Drop Off Locations </h1>
+          </header>
+        </div>
         <div>
           <form>
             <label htmlFor="search_street">Street:</label>

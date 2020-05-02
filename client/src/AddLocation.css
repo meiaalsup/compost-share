@@ -1,0 +1,11 @@
+.AddLocation-header {
+  font-family: "Arial Black", Gadget, sans-serif;
+  background-color: #d2f8d2;
+  min-height: 3vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(5px + .2vmin);
+  color: #093909;
+}

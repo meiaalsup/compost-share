@@ -53,8 +53,8 @@ class App extends React.Component {
           <h1> Compost Share </h1>
         </header>
 
-        <Search updateLocation={(locations) => this.updateLocations(locations)} />
         <MapUI mapScript={this.getGoogleMapScript()} locations={this.state.locations} />
+        <Search updateLocation={(locations) => this.updateLocations(locations)} />
         <AddLocation />
       </div>
     )
