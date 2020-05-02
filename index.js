@@ -10,8 +10,8 @@ var config = require('./config')
 const MongoClient = require('mongodb').MongoClient
 
 const connectionString = "mongodb+srv://" + config.mongoUsername + ":" + 
-                         config.mongoPassword + 
-                         "@cluster0-j1n2z.mongodb.net/test?retryWrites=true&w=majority"
+  config.mongoPassword + 
+  "@cluster0-j1n2z.mongodb.net/test?retryWrites=true&w=majority"
 app.use(cors())
 app.use(express.json()) // for parsing application/json
 
@@ -34,10 +34,10 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
     app.post('/deletelocation', (req, res) => {
       let address_filters = [];
       for (const [key, value] of Object.entries(req.body.address)) {
-	let query = {};
-	let key2 = "address.".concat(key);
- 	query[key2] = value;
-	address_filters.push(query);
+        let query = {};
+        let key2 = "address.".concat(key);
+        query[key2] = value;
+        address_filters.push(query);
       }
       let filters = { $and: address_filters};
       usersCollection.deleteMany(filters)
@@ -67,19 +67,19 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
 
     /** Search, pass in location,filters, etc, return results from database**/
     app.post('/search', (req, res) => {
-     let availability_filters = [];
-     for (const [key, value] of Object.entries(req.body.availability)) {
-       if (value) {
-	let key2 = "availability.".concat(key);
-	let query = {};
-	query[key2] = value;
-	availability_filters.push(query);
-      }
-     }  
+      let availability_filters = [];
+      for (const [key, value] of Object.entries(req.body.availability)) {
+        if (value) {
+          let key2 = "availability.".concat(key);
+          let query = {};
+          query[key2] = value;
+          availability_filters.push(query);
+        }
+      }  
      let filters = { $and: [{"address.state" : {$eq: req.body.address.state} }, {$or: availability_filters}]};
      usersCollection.find(filters).toArray()
         .then(result => {
-          console.log(result)
+          console.log('search results:' + result)
           res.send(result)
         })
         .catch(error => console.log(error))

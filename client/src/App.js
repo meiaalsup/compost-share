@@ -12,24 +12,26 @@ class App extends React.Component {
     this.state = {
       locations: [
       {
-        lat: -34.597,
-        lng: 150.644,
+        address: {
+          latlng: {
+            lat: -34.597,
+            lng: 150.644,
+          },
+        },
         foodscraps: {
-          vegetables: true
+          vegetables: true,
+          fruits: true
         }
       },
       {
-        lat: -34.397,
-        lng: 150.644,
+        address: {
+          latlng: {
+            lat: -34.397,
+            lng: 150.544,
+          },
+        },
         foodscraps: {
           vegetables: true
-        }
-      },
-      {
-        lat: -34.15452,
-        lng: 150.614,
-        foodscraps: {
-          vegetables: false
         }
       },
     ]}
@@ -43,6 +45,7 @@ class App extends React.Component {
   }
 
   updateLocations(locations) {
+    console.log('update location called with locations: ' + locations)
     this.setState({location: locations})
   }
 

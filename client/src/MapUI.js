@@ -9,7 +9,8 @@ class MapUI extends React.Component {
       addresses: [
         {lat: -34.397,
           lng: 150.644},
-      ]
+      ],
+      markers: [],
     };
   }
 
@@ -18,9 +19,8 @@ class MapUI extends React.Component {
     this.props.mapScript.addEventListener('load', () => {
       let map = new window.google.maps.Map(
         document.getElementById('map'), {
-          center: this.props.locations[0],
+          center: this.props.locations[0].address.latlng,
           zoom: 8
-
         }
       )
       this.setState({map: map})
@@ -30,11 +30,13 @@ class MapUI extends React.Component {
 
   addMarkers() {
     //this.map. // blah blah add markers
-    this.state.map.setCenter(this.props.locations[0])
+
+    this.state.markers.forEach((marker) => {marker.setMap(null)})
+    this.state.map.setCenter(this.props.locations[0].address.latlng)
     this.setState({
       markers: this.props.locations.map(
         (location, index) => new window.google.maps.Marker({
-          position: location,
+          position: location.address.latlng,
           map: this.state.map,
         })
       )

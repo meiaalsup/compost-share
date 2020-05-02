@@ -54,7 +54,8 @@ class Search extends React.Component {
     })
       .then(response => response.text())
       .then(json => {
-        console.log(json)
+        console.log('response from search: ' + json)
+        this.props.updateLocation(json)
         
       })
       .catch(e => {
