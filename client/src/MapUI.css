@@ -1,4 +1,11 @@
-#map {
-  height: 100vh;
-  width: 100%;
+#mapWrapper {
+  display: flex;
+  justify-content: center;
 }
+
+#map {
+  height: 90vh;
+  width: 90%;
+}
+
+
