@@ -20,27 +20,28 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
     console.log('Connection to Database Successful!')
     const db = client.db('Compost-Share')
     const usersCollection = db.collection('users')
+
+    /**Add Location to database **/
     app.post('/addlocation', (req, res) => {
-      console.log('add location body')
-      console.log(req.body)
       usersCollection.insertOne(req.body)
         .then(result => {
           console.log(result)
         })
         .catch(error => console.log(error))
     })
+
     /** Search, pass in location,filters, etc, return results from database**/
-    app.get('/search', (req, res) => { // have to pass in params, could be post or get
-      console.log(req.body)
-      usersCollection.insertOne(req.body)
+    app.post('/search', (req, res) => {
+      usersCollection.find({"address.state" : {$eq: req.body.address.state} }).toArray()
         .then(result => {
           console.log(result)
         })
         .catch(error => console.log(error))
     })
+
     /** Get all locations **/
-    app.get('getAll', (req, res) => {
-      usersCollection.insertOne(req.body)
+    app.get('/getAll', (req, res) => {
+      usersCollection.find().toArray()   
         .then(result => {
           console.log(result)
         })
@@ -51,7 +52,6 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
   .catch(error => console.error(error))
 
 
-app.get('/', (req, res) => res.send(hi))
-
+app.get('/', (req, res) => res.send("hi"))
 app.listen(port, () => console.log(`Compost-Share Server listening at http://localhost:${port}`))
 

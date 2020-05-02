@@ -22,15 +22,12 @@ class AddLocation extends React.Component {
         friday: true,
         saturday: true,
         sunday: true,
-      }
+      },
     };
   }
 
   addlocation() {
-    console.log(this.state.query)
-    let json = JSON.stringify({
-      address: this.state.address,
-    });
+    let json = JSON.stringify(this.state) 
     console.log(json)
     fetch("http://localhost:3000/addlocation", {
       method: "POST",
@@ -54,7 +51,7 @@ class AddLocation extends React.Component {
         <p>{"Add Location"}</p>
         <button onClick={() => 
             this.addlocation()
-        }>AddLocation</button>
+        }>addLocation</button>
 
       </div>
     )
