@@ -30,13 +30,48 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
         .catch(error => console.log(error))
     })
 
+    /**Delete Location to database **/
+    app.post('/deletelocation', (req, res) => {
+      let address_filters = [];
+      for (const [key, value] of Object.entries(req.body.address)) {
+	let query = {};
+	let key2 = "address.".concat(key);
+ 	query[key2] = value;
+	address_filters.push(query);
+      }
+      let filters = { $and: address_filters};
+      usersCollection.deleteMany(filters)
+        .then(result => {
+          console.log(result)
+        })
+        .catch(error => console.log(error))
+    })
+
+    /**Update Location to database **/
+    app.post('/updatelocation', (req, res) => {
+      let address_filters = [];
+      for (const [key, value] of Object.entries(req.body.address)) {
+        let query = {};
+        let key2 = "address.".concat(key);
+        query[key2] = value;
+        address_filters.push(query);
+      }
+      let filters = { $and: address_filters};
+      let update_fields = { $set : req.body.availability};
+      usersCollection.updateMany(filters, update_fields)
+        .then(result => {
+          console.log(result)
+        })
+        .catch(error => console.log(error))
+    })
+
     /** Search, pass in location,filters, etc, return results from database**/
     app.post('/search', (req, res) => {
      let availability_filters = [];
      for (const [key, value] of Object.entries(req.body.availability)) {
        if (value) {
 	let key2 = "availability.".concat(key);
-	var query = {};
+	let query = {};
 	query[key2] = value;
 	availability_filters.push(query);
       }

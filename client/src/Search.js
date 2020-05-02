@@ -88,6 +88,7 @@ class Search extends React.Component {
             <input type="text" id="search_zip" name="search_zip"/>
           </form>
        </div>
+       <p> </p>	
        <div>
 	  Availability
 	  <div>

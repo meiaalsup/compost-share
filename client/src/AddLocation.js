@@ -14,6 +14,38 @@ class AddLocation extends React.Component {
     }
   }
 
+  deletelocation() {
+    let street = document.getElementById('add_street').value;
+    let city = document.getElementById('add_city').value;
+    let state = document.getElementById('add_state').value;
+    let zip = document.getElementById('add_zip').value;
+    let data = {
+      address: {
+        street: street,
+        city: city,
+        state: state,
+        zipcode: zip,
+      }
+    }
+    let json = JSON.stringify(data)
+    console.log(json)
+    fetch("http://localhost:3000/deletelocation", {
+      method: "POST",
+      body: json,
+      headers: {
+        "Content-Type": "application/json"
+      },
+    })
+      .then(response => response.json())
+      .then(json => {
+        console.log(json)
+      })
+      .catch(e => {
+        console.log('There has been a problem with your fetch operation: ' + e.message);
+      });
+  }
+
+
   addlocation() {
     let street = document.getElementById('add_street').value;
     let city = document.getElementById('add_city').value;
@@ -84,12 +116,82 @@ class AddLocation extends React.Component {
     );
   }
 
+  updatelocation() {
+    let street = document.getElementById('add_street').value;
+    let city = document.getElementById('add_city').value;
+    let state = document.getElementById('add_state').value;
+    let zip = document.getElementById('add_zip').value;
+    Geocode.fromAddress(street + city + state + zip).then(
+      response => {
+       const { lat, lng } = response.results[0].geometry.location;
+       
+     let data = {
+      address: {
+        street: street,
+        city: city,
+        state: state,
+        zipcode: zip,
+        lat: lat,
+        lng: lng,
+      },
+      foodscraps: {
+        vegetables: true
+      },
+      availability: {
+        monday_morn: document.getElementById('add_mon_morn').checked,
+        monday_aft: document.getElementById('add_mon_aft').checked,
+        monday_eve: document.getElementById('add_mon_eve').checked,
+        tuesday_morn: document.getElementById('add_tues_morn').checked,
+        tuesday_aft: document.getElementById('add_tues_aft').checked,
+        tuesday_eve: document.getElementById('add_tues_eve').checked,
+        wed_morn: document.getElementById('add_wed_morn').checked,
+        wed_aft: document.getElementById('add_wed_aft').checked,
+        wed_eve: document.getElementById('add_wed_eve').checked,
+        thurs_morn: document.getElementById('add_thurs_morn').checked,
+        thurs_aft: document.getElementById('add_thurs_aft').checked,
+        thurs_eve: document.getElementById('add_thurs_eve').checked,
+        fri_morn: document.getElementById('add_fri_morn').checked,
+        fri_aft: document.getElementById('add_fri_aft').checked,
+        fri_eve: document.getElementById('add_fri_eve').checked,
+        sat_morn: document.getElementById('add_sat_morn').checked,
+        sat_aft: document.getElementById('add_sat_aft').checked,
+        sat_eve: document.getElementById('add_sat_eve').checked,
+        sun_morn: document.getElementById('add_sun_morn').checked,
+        sun_aft: document.getElementById('add_sun_aft').checked,
+        sun_eve: document.getElementById('add_sun_eve').checked,
+      },
+    };
+
+    let json = JSON.stringify(data)
+    console.log(json)
+    fetch("http://localhost:3000/updatelocation", {
+      method: "POST",
+      body: json,
+      headers: {
+        "Content-Type": "application/json"
+      },
+    })
+      .then(response => response.json())
+      .then(json => {
+        console.log(json)
+      })
+      .catch(e => {
+        console.log('There has been a problem with your fetch operation: ' + e.message);
+      });
+
+    },
+    error => {
+      console.error(error);
+    }
+    );
+  }
+
   render() {
     return ( 
       <div>
             <div className="AddLocation">
               <header className="AddLocation-header">
-                <h1> Add Location For Compost Drop Off </h1>
+                <h1> Add/Delete/Update Location For Compost Drop Off </h1>
               </header>
             </div>
         <div>
@@ -104,8 +206,9 @@ class AddLocation extends React.Component {
             <input type="text" id="add_zip" name="add_zip"/>
           </form>
        </div>
+       <p> </p>
        <div>
-          Availability
+          Availability (if adding or updating location)
           <div>
           <b>Monday:</b>
           <input type="checkbox" id="add_mon_morn" name="add_mon_morn"/>
@@ -173,7 +276,12 @@ class AddLocation extends React.Component {
        <button onClick={() => 
             this.addlocation()
         }>Add Location</button>
-
+	<button onClick={() =>
+            this.updatelocation()
+        }>Update Location</button>
+        <button onClick={() =>
+            this.deletelocation()
+        }>Delete Location</button>
       </div>
     )
   }

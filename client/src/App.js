@@ -55,6 +55,7 @@ class App extends React.Component {
 
         <MapUI mapScript={this.getGoogleMapScript()} locations={this.state.locations} />
         <Search updateLocation={(locations) => this.updateLocations(locations)} />
+	<p> </p>
         <AddLocation />
       </div>
     )
