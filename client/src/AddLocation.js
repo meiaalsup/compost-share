@@ -61,8 +61,10 @@ class AddLocation extends React.Component {
         city: city,
         state: state,
         zipcode: zip,
-        lat: lat,
-        lng: lng,
+        latlng: {
+	  lat : lat,
+          lng : lng
+	}
       },
       foodscraps: {
         vegetables: true
