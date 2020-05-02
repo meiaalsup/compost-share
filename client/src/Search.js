@@ -43,6 +43,7 @@ class Search extends React.Component {
 
   search() {
     let state = this.updateState()
+    // TODO: if nothing checked, add alert 
     let json = JSON.stringify(state)
     console.log(json)
     fetch("http://localhost:3000/search", {
@@ -52,7 +53,7 @@ class Search extends React.Component {
         "Content-Type": "application/json"
       },
     })
-      .then(response => response.text())
+      .then(response => response.json())
       .then(json => {
         console.log('response from search: ' + json)
         this.props.updateLocation(json)
