@@ -32,7 +32,17 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
 
     /** Search, pass in location,filters, etc, return results from database**/
     app.post('/search', (req, res) => {
-      usersCollection.find({"address.state" : {$eq: req.body.address.state} }).toArray()
+     let availability_filters = [];
+     for (const [key, value] of Object.entries(req.body.availability)) {
+       if (value) {
+	let key2 = "availability.".concat(key);
+	var query = {};
+	query[key2] = value;
+	availability_filters.push(query);
+      }
+     }  
+     let filters = { $and: [{"address.state" : {$eq: req.body.address.state} }, {$or: availability_filters}]};
+     usersCollection.find(filters).toArray()
         .then(result => {
           console.log(result)
         })
