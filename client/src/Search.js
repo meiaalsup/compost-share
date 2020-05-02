@@ -93,69 +93,98 @@ class Search extends React.Component {
        <div>
 	  Availability
 	  <div>
-	  <b>Monday:</b>
-	  <input type="checkbox" id="search_mon_morn" name="search_mon_morn"/>
-	  <label htmlFor="search_mon_morn"> 8am-12pm</label>
-	  <input type="checkbox" id="search_mon_aft" name="search_mon_aft"/>
-	  <label htmlFor="search_mon_aft"> 12pm-4pm</label>
-	  <input type="checkbox" id="search_mon_eve" name="search_mon_eve"/>
-	  <label htmlFor="search_mon_eve"> 4pm-8pm</label>
+      <div className="Search">
+        <subheading className="Search-day">
+            <t1>Mon:</t1>
+        </subheading>
+	       <input type="checkbox" id="search_mon_morn" name="search_mon_morn"/>
+	       <label htmlFor="search_mon_morn">8am-12pm </label>
+	       <input type="checkbox" id="search_mon_aft" name="search_mon_aft"/>
+	       <label htmlFor="search_mon_aft">12pm-4pm </label>
+	       <input type="checkbox" id="search_mon_eve" name="search_mon_eve"/>
+	       <label htmlFor="search_mon_eve">4pm-8pm </label>
+      </div>
+
 	  </div>
-          <div>
-          <b>Tuesday:</b>
-          <input type="checkbox" id="search_tues_morn" name="search_tues_morn"/>
-          <label htmlFor="search_tues_morn"> 8am-12pm</label>
-          <input type="checkbox" id="search_tues_aft" name="search_tues_aft"/>
-          <label htmlFor="search_tues_aft"> 12pm-4pm</label>
-          <input type="checkbox" id="search_tues_eve" name="search_tues_eve"/>
-          <label htmlFor="search_tues_eve"> 4pm-8pm</label>
-          </div>
+    <div>
+      <div className="Search">
+        <subheading className="Search-day">
+          <t1>Tue:</t1>
+        </subheading>
+        <input type="checkbox" id="search_tues_morn" name="search_tues_morn"/>
+        <label htmlFor="search_tues_morn">8am-12pm </label>
+        <input type="checkbox" id="search_tues_aft" name="search_tues_aft"/>
+        <label htmlFor="search_tues_aft">12pm-4pm </label>
+        <input type="checkbox" id="search_tues_eve" name="search_tues_eve"/>
+        <label htmlFor="search_tues_eve">4pm-8pm </label>
+      </div>
+    </div>
 	  <div>
-          <b>Wednesday:</b>
+        <div className="Search">
+          <subheading className="Search-day">
+            <t1>Wed:</t1>
+          </subheading>
           <input type="checkbox" id="search_wed_morn" name="search_wed_morn"/>
-          <label htmlFor="search_wed_morn"> 8am-12pm</label>
+          <label htmlFor="search_wed_morn">8am-12pm </label>
           <input type="checkbox" id="search_wed_aft" name="search_wed_aft"/>
-          <label htmlFor="search_wed_aft"> 12pm-4pm</label>
+          <label htmlFor="search_wed_aft">12pm-4pm </label>
           <input type="checkbox" id="search_wed_eve" name="search_wed_eve"/>
-          <label htmlFor="search_wed_eve"> 4pm-8pm</label>
+          <label htmlFor="search_wed_eve">4pm-8pm </label>
           </div>
-	  <div>
-          <b>Thursday:</b>
-          <input type="checkbox" id="search_thurs_morn" name="search_thurs_morn"/>
-          <label htmlFor="search_thurs_morn"> 8am-12pm</label>
-          <input type="checkbox" id="search_thurs_aft" name="search_thurs_aft"/>
-          <label htmlFor="search_thurs_aft"> 12pm-4pm</label>
-          <input type="checkbox" id="search_thurs_eve" name="search_thurs_eve"/>
-          <label htmlFor="search_thurs_eve"> 4pm-8pm</label>
-          </div>
-	  <div>
-          <b>Friday:</b>
-          <input type="checkbox" id="search_fri_morn" name="search_fri_morn"/>
-          <label htmlFor="search_fri_morn"> 8am-12pm</label>
-          <input type="checkbox" id="search_fri_aft" name="search_fri_aft"/>
-          <label htmlFor="search_fri_aft"> 12pm-4pm</label>
-          <input type="checkbox" id="search_fri_eve" name="search_fri_eve"/>
-          <label htmlFor="search_fri_eve"> 4pm-8pm</label>
-          </div>
-          <div>
-          <b>Saturday:</b>
-          <input type="checkbox" id="search_sat_morn" name="search_sat_morn"/>
-          <label htmlFor="search_sat_morn"> 8am-12pm</label>
-          <input type="checkbox" id="search_sat_aft" name="search_sat_aft"/>
-          <label htmlFor="search_sat_aft"> 12pm-4pm</label>
-          <input type="checkbox" id="search_sat_eve" name="search_sat_eve"/>
-          <label htmlFor="search_sat_eve"> 4pm-8pm</label>
-          </div>
- 	  <div>
-          <b>Sunday:</b>
-          <input type="checkbox" id="search_sun_morn" name="search_sun_morn"/>
-          <label htmlFor="search_sun_morn"> 8am-12pm</label>
-          <input type="checkbox" id="search_sun_aft" name="search_sun_aft"/>
-          <label htmlFor="search_sun_aft"> 12pm-4pm</label>
-          <input type="checkbox" id="search_sun_eve" name="search_sun_eve"/>
-          <label htmlFor="search_sun_eve"> 4pm-8pm</label>
-          </div>	
         </div>
+	  <div>
+      <div className="Search">
+        <subheading className="Search-day">
+          <t1>Thu:</t1>
+        </subheading>
+        <input type="checkbox" id="search_thurs_morn" name="search_thurs_morn"/>
+        <label htmlFor="search_thurs_morn">8am-12pm </label>
+        <input type="checkbox" id="search_thurs_aft" name="search_thurs_aft"/>
+        <label htmlFor="search_thurs_aft">12pm-4pm </label>
+        <input type="checkbox" id="search_thurs_eve" name="search_thurs_eve"/>
+        <label htmlFor="search_thurs_eve">4pm-8pm </label>
+        </div>
+      </div>
+	  <div>
+      <div className="Search">
+        <subheading className="Search-day">
+          <t1>Fri:</t1>
+        </subheading>
+        <input type="checkbox" id="search_fri_morn" name="search_fri_morn"/>
+        <label htmlFor="search_fri_morn">8am-12pm </label>
+        <input type="checkbox" id="search_fri_aft" name="search_fri_aft"/>
+        <label htmlFor="search_fri_aft">12pm-4pm </label>
+        <input type="checkbox" id="search_fri_eve" name="search_fri_eve"/>
+        <label htmlFor="search_fri_eve">4pm-8pm </label>
+        </div>
+      </div>
+    <div>
+      <div className="Search">
+        <subheading className="Search-day">
+          <t1>Sat:</t1>
+        </subheading>
+        <input type="checkbox" id="search_sat_morn" name="search_sat_morn"/>
+        <label htmlFor="search_sat_morn">8am-12pm </label>
+        <input type="checkbox" id="search_sat_aft" name="search_sat_aft"/>
+        <label htmlFor="search_sat_aft">12pm-4pm </label>
+        <input type="checkbox" id="search_sat_eve" name="search_sat_eve"/>
+        <label htmlFor="search_sat_eve">4pm-8pm </label>
+        </div>
+      </div>
+ 	  <div>
+      <div className="Search">
+        <subheading className="Search-day">
+          <t1>Sun:</t1>
+        </subheading>
+        <input type="checkbox" id="search_sun_morn" name="search_sun_morn"/>
+        <label htmlFor="search_sun_morn">8am-12pm </label>
+        <input type="checkbox" id="search_sun_aft" name="search_sun_aft"/>
+        <label htmlFor="search_sun_aft">12pm-4pm </label>
+        <input type="checkbox" id="search_sun_eve" name="search_sun_eve"/>
+        <label htmlFor="search_sun_eve">4pm-8pm </label>
+        </div>	
+      </div>
+    </div>
 	<button onClick={() => 
             this.search()
         }>Search</button>

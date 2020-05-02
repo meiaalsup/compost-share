@@ -1,3 +1,11 @@
+.Search {
+	font-family: "Courier New", Courier, monospace;
+}
+
+.Search-day {
+	font-family: "Lucida Console", Courier, monospace;
+}
+
 .Search-header {
   font-family: "Arial Black", Gadget, sans-serif;
   background-color: #d2f8d2;
