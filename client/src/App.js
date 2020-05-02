@@ -24,9 +24,11 @@ class App extends React.Component {
         <Search />
         <MapUI mapScript={this.getGoogleMapScript()} locations={[
         {lat: -34.397,
-          lng: 150.644},
+          lng: 150.644,
+            foodscraps: {vegetables: true}},
         {lat: -34.15452,
-          lng: 145.75346}
+          lng: 150.614,
+            foodscraps: {vegetables: false}},
       
         ]}/>
         <AddLocation />
