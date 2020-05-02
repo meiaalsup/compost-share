@@ -52,7 +52,7 @@ class Search extends React.Component {
         "Content-Type": "application/json"
       },
     })
-      .then(response => response.text())
+      .then(response => response.json())
       .then(json => {
         console.log('response from search: ' + json)
         this.props.updateLocation(json)

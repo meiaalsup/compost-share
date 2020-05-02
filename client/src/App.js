@@ -46,7 +46,7 @@ class App extends React.Component {
 
   updateLocations(locations) {
     console.log('update location called with locations: ' + locations)
-    this.setState({location: locations})
+    this.setState({locations: locations})
   }
 
   render() {
