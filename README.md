@@ -19,8 +19,9 @@ Authors: Jena Alsup, Meena Rajan, Meia Alsup
 
 
 ## Deployment
-* [Heroku](https://www.heroku.com/): deployment probably: compost-share.heroku.com
-
+* [Netlify](https://www.netlify/): deployment probably: compost-share.heroku.com
+   * Netlify functions for a back end server
+   * netlify-functions-express
 
 ## Initial Setup Instructions
 
