@@ -45,6 +45,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
      usersCollection.find(filters).toArray()
         .then(result => {
           console.log(result)
+          res.send(result)
         })
         .catch(error => console.log(error))
     })
