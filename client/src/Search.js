@@ -1,15 +1,20 @@
 import React from 'react';
 import './Search.css';
+import AddressForm from './AddressForm.js';
+
 
 class Search extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
+  }
+
+  updateState() {
+    return {
       address: {
-        street: "70 Massachusetts Ave",
-        city: "Cambridge",
-        state: "MA",
-        zipcode: "02139"
+        street:  document.getElementById('street').value,
+        city: document.getElementById('city').value,
+        state: document.getElementById('state').value,
+        zipcode: document.getElementById('zip').value
       },
       foodscraps: {
         vegetables: true
@@ -26,8 +31,10 @@ class Search extends React.Component {
     };
   }
 
+
   search() {
-    let json = JSON.stringify(this.state);
+    let state = this.updateState()
+    let json = JSON.stringify(state)
     console.log(json)
     fetch("http://localhost:3000/search", {
       method: "POST",
@@ -48,7 +55,7 @@ class Search extends React.Component {
   render() {
     return ( 
       <div>
-        <p>{"Search"}</p>
+        <AddressForm />
         <button onClick={() => 
             this.search()
         }>Search</button>

@@ -1,15 +1,19 @@
 import React from 'react';
-import './Search.css';
+import './AddLocation.css';
+import AddressForm from './AddressForm.js';
 
 class AddLocation extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
+  }
+
+ updateState() {
+    return {
       address: {
-        street: "70 Massachusetts Ave",
-        city: "Cambridge",
-        state: "MA",
-        zipcode: "02139"
+        street:  document.getElementById('street').value,
+        city: document.getElementById('city').value,
+        state: document.getElementById('state').value,
+        zipcode: document.getElementById('zip').value
       },
       foodscraps: {
         vegetables: true
@@ -27,7 +31,8 @@ class AddLocation extends React.Component {
   }
 
   addlocation() {
-    let json = JSON.stringify(this.state) 
+    let state = this.updateState()
+    let json = JSON.stringify(state) 
     console.log(json)
     fetch("http://localhost:3000/addlocation", {
       method: "POST",
@@ -48,7 +53,7 @@ class AddLocation extends React.Component {
   render() {
     return ( 
       <div>
-        <p>{"Add Location"}</p>
+        <AddressForm/>
         <button onClick={() => 
             this.addlocation()
         }>addLocation</button>

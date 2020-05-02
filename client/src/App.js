@@ -10,16 +10,9 @@ function App() {
         <h1> Compost Share </h1>
       </header>
 
-      <Search />
-      <AddLocation />
-      <div>
-        <p>Hello there!</p>
-        <p>Hello there!</p>
-        <p>Hello there!</p>
-        <p>Hello there!</p>
-        <p>Hello there!</p>
-        <p>Hello there!</p>
-      </div>
+      <Search /> 
+      <p> </p>
+      <AddLocation /> 
     </div>
   );
 }
