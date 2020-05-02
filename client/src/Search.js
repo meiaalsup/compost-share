@@ -1,7 +1,5 @@
 import React from 'react';
 import './Search.css';
-import AddressForm from './AddressForm.js';
-
 
 class Search extends React.Component {
   constructor(props) {
@@ -11,10 +9,10 @@ class Search extends React.Component {
   updateState() {
     return {
       address: {
-        street:  document.getElementById('street').value,
-        city: document.getElementById('city').value,
-        state: document.getElementById('state').value,
-        zipcode: document.getElementById('zip').value
+        street:  document.getElementById('search_street').value,
+        city: document.getElementById('search_city').value,
+        state: document.getElementById('search_state').value,
+        zipcode: document.getElementById('search_zip').value
       },
       foodscraps: {
         vegetables: true
@@ -55,7 +53,18 @@ class Search extends React.Component {
   render() {
     return ( 
       <div>
-        <AddressForm />
+        <div>
+          <form>
+            <label htmlFor="search_street">Street:</label>
+            <input type="text" id="search_street" name="search_street"/><br/>
+            <label htmlFor="search_city">City:</label>
+            <input type="text" id="search_city" name="search_city"/>
+            <label htmlFor="search_state">State:</label>
+            <input type="text" id="search_state" name="search_state"/>
+            <label htmlFor="search_zip">Zip Code:</label>
+            <input type="text" id="search_zip" name="search_zip"/>
+          </form>
+       </div>
         <button onClick={() => 
             this.search()
         }>Search</button>

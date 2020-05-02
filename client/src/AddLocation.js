@@ -1,6 +1,9 @@
 import React from 'react';
 import './AddLocation.css';
-import AddressForm from './AddressForm.js';
+//import Geocode from "react-geocode";
+//Geocode.setApiKey("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+//Geocode.setLanguage("en");
+//Geocode.setRegion("en");
 
 class AddLocation extends React.Component {
   constructor(props) {
@@ -8,12 +11,28 @@ class AddLocation extends React.Component {
   }
 
  updateState() {
+   // Get latidude & longitude from address.
+   let street = document.getElementById('add_street').value;
+   let city = document.getElementById('add_city').value;
+   let state = document.getElementById('add_state').value;
+   let zip = document.getElementById('add_zip').value;
+//   Geocode.fromAddress(street + city + state + zip).then(
+//   response => {
+//     const { lat, lng } = response.results[0].geometry.location;
+//     console.log(lat, lng);
+//   },
+//   error => {
+//     console.error(error);
+//   }
+//   );
+
+
     return {
       address: {
-        street:  document.getElementById('street').value,
-        city: document.getElementById('city').value,
-        state: document.getElementById('state').value,
-        zipcode: document.getElementById('zip').value
+        street: street,
+        city: city,
+        state: state,
+        zipcode: zip
       },
       foodscraps: {
         vegetables: true
@@ -53,8 +72,19 @@ class AddLocation extends React.Component {
   render() {
     return ( 
       <div>
-        <AddressForm/>
-        <button onClick={() => 
+        <div>
+          <form>
+            <label htmlFor="add_street">Street:</label>
+            <input type="text" id="add_street" name="add_street"/><br/>
+            <label htmlFor="add_city">City:</label>
+            <input type="text" id="add_city" name="add_city"/>
+            <label htmlFor="add_state">State:</label>
+            <input type="text" id="add_state" name="add_state"/>
+            <label htmlFor="add_zip">Zip Code:</label>
+            <input type="text" id="add_zip" name="add_zip"/>
+          </form>
+       </div>
+       <button onClick={() => 
             this.addlocation()
         }>addLocation</button>
 
