@@ -9,8 +9,6 @@ class MapUI extends React.Component {
       addresses: [
         {lat: -34.397,
           lng: 150.644},
-        {lat: -35.15452,
-          lng: 145.75346}
       ]
     };
   }

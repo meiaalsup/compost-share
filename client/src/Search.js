@@ -55,6 +55,7 @@ class Search extends React.Component {
       .then(response => response.text())
       .then(json => {
         console.log(json)
+        
       })
       .catch(e => {
         console.log('There has been a problem with your fetch operation: ' + e.message);
