@@ -1,9 +1,9 @@
 import React from 'react';
 import './AddLocation.css';
-//import Geocode from "react-geocode";
-//Geocode.setApiKey("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-//Geocode.setLanguage("en");
-//Geocode.setRegion("en");
+import Geocode from "react-geocode";
+Geocode.setApiKey("AIzaSyCpRMzf69BbqeV9IuswQUXeW19VXmJ3azg");
+Geocode.setLanguage("en");
+Geocode.setRegion("en");
 
 class AddLocation extends React.Component {
   constructor(props) {
@@ -14,29 +14,23 @@ class AddLocation extends React.Component {
     }
   }
 
- updateState() {
-   // Get latidude & longitude from address.
-   let street = document.getElementById('add_street').value;
-   let city = document.getElementById('add_city').value;
-   let state = document.getElementById('add_state').value;
-   let zip = document.getElementById('add_zip').value;
-//   Geocode.fromAddress(street + city + state + zip).then(
-//   response => {
-//     const { lat, lng } = response.results[0].geometry.location;
-//     console.log(lat, lng);
-//   },
-//   error => {
-//     console.error(error);
-//   }
-//   );
-
-
-    return {
+  addlocation() {
+    let street = document.getElementById('add_street').value;
+    let city = document.getElementById('add_city').value;
+    let state = document.getElementById('add_state').value;
+    let zip = document.getElementById('add_zip').value;
+    Geocode.fromAddress(street + city + state + zip).then(
+      response => {
+       const { lat, lng } = response.results[0].geometry.location;
+       
+     let data = {
       address: {
         street: street,
         city: city,
         state: state,
-        zipcode: zip
+        zipcode: zip,
+        lat: lat,
+        lng: lng,
       },
       foodscraps: {
         vegetables: true
@@ -65,11 +59,8 @@ class AddLocation extends React.Component {
         sun_eve: document.getElementById('add_sun_eve').checked,
       },
     };
-  }
 
-  addlocation() {
-    let state = this.updateState()
-    let json = JSON.stringify(state) 
+    let json = JSON.stringify(data)
     console.log(json)
     fetch("http://localhost:3000/addlocation", {
       method: "POST",
@@ -85,6 +76,12 @@ class AddLocation extends React.Component {
       .catch(e => {
         console.log('There has been a problem with your fetch operation: ' + e.message);
       });
+
+    },
+    error => {
+      console.error(error);
+    }
+    );
   }
 
   render() {
