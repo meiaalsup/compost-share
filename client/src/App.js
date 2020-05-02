@@ -22,7 +22,13 @@ class App extends React.Component {
         </header>
 
         <Search />
-        <MapUI mapScript={this.getGoogleMapScript()}/>
+        <MapUI mapScript={this.getGoogleMapScript()} locations={[
+        {lat: -34.397,
+          lng: 150.644},
+        {lat: -34.15452,
+          lng: 145.75346}
+      
+        ]}/>
         <AddLocation />
       </div>
     )
