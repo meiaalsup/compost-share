@@ -3,20 +3,31 @@ import './App.css';
 import Search from './Search';
 import AddLocation from './AddLocation';
 import MapUI from './MapUI';
+import apiKey from './private'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <h1> Compost Share </h1>
-      </header>
+class App extends React.Component {
 
-      <MapUI />
-      <Search />
-      <p> </p>
-      <AddLocation />
-    </div>
-  );
+  getGoogleMapScript() {
+    console.log(apiKey)
+    let mapsScript = document.getElementById("gMapsScript")
+    mapsScript.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}`
+    return mapsScript
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <h1> Compost Share </h1>
+        </header>
+
+        <Search />
+        <MapUI mapScript={this.getGoogleMapScript()}/>
+        <AddLocation />
+      </div>
+    )
+  }
+
 }
 
 export default App;

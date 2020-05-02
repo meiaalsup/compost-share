@@ -8,6 +8,10 @@ import './AddLocation.css';
 class AddLocation extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      address: {},
+      foodscraps: {}
+    }
   }
 
  updateState() {
