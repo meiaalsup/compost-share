@@ -10,26 +10,23 @@ Due to coronavirus budget cuts, New York City will be suspending curbside compos
 
 ## Development Stack
 * [node](https://nodejs.org/en/) - javascript runtime
-* [express](https://expressjs.com/) - javascript web framework, our back end server
-* [react](https://reactjs.org/) - front end framework
-* [mongodb](https://www.mongodb.com/) - database option
+* [express](https://expressjs.com/) - back end server
+* [react](https://reactjs.org/) - front end
+* [mongodb](https://www.mongodb.com/) - database
 
 ## Other Helpful Things / APIs leveraged
 * Google Maps API
     * Maps Javascript API
     * Geocode
 * [flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) - css styling
-* [passportjs](http://www.passportjs.org/) - authentication, gives oauth and such
-    * integrates easily with express
 
 ## Deployment
 * [Netlify](https://www.netlify/) for React Front End
-    * `npm run-script build`
-    * `netlify deploy --dir=build --prod`
+    * `cd src/client && ./deploy.sh`
 
 * [Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs?singlepage=true) for Express Back-End
-    * `git push heroku master`
-    * `heroku log --tail`
+    * `./deploy.sh`
+    * View logs: `heroku log --tail`
 
 
 ## Features
