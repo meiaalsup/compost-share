@@ -2,6 +2,15 @@
 Cal Earth Hacks - Compost Sharing Map
 Authors: Jena Alsup, Meena Rajan, Meia Alsup
 
+## TODO LIST
+* load the markers on page load at the beginning
+* remove our home addresses, and put more dummy data
+* make the rest of search do something, or only include the state box
+* Make repo public
+    * generate new private api keys and put in a file to be git ignored
+* Turn in results
+    * Screenshots / Video
+
 ## Motivation Statement
 * Cambridge cancelled compost
 
