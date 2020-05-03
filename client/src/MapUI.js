@@ -29,7 +29,7 @@ const foodDisplayString = {
   fruit: "Fruits/Vegetables",
   dairy: "Dairy",
   meat: "Meat",
-  yeard: "Yard Waste"
+  yard: "Yard Waste"
 }
 
 const DEFAULT_CENTER = {
