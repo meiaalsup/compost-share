@@ -88,6 +88,7 @@ class Search extends React.Component {
                 const { lat, lng } = response.results[0].geometry.location;
                 console.log("search LATLNG:" + lat, lng)
                 this.props.updateSearchLocation({lat:lat,lng:lng})
+		this.props.updateShowSearchLocation(true)
                 this.props.updateLocation(json) 
               },
               error => {
@@ -133,6 +134,8 @@ class Search extends React.Component {
           .then(response => response.json())
           .then(json => {
             console.log(json)
+	    this.props.updateShowSearchLocation(false)
+            this.props.updateLocation(json)
           })
           .catch(e => {
             console.log('There has been a problem with your fetch operation: ' + e.message);
@@ -208,6 +211,8 @@ class Search extends React.Component {
           .then(response => response.json())
           .then(json => {
             console.log(json)
+	    this.props.updateShowSearchLocation(false)
+	    this.props.updateLocation(json)
           })
           .catch(e => {
             console.log('There has been a problem with your fetch operation: ' + e.message);
@@ -284,7 +289,9 @@ class Search extends React.Component {
           .then(response => response.json())
           .then(json => {
             console.log(json)
-          })
+            this.props.updateShowSearchLocation(false)
+            this.props.updateLocation(json) 
+	 })
           .catch(e => {
             console.log('There has been a problem with your fetch operation: ' + e.message);
           });

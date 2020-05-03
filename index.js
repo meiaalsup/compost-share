@@ -24,6 +24,15 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
       usersCollection.insertOne(req.body)
         .then(result => {
           console.log(result)
+     		let filters = {"address.state" : {$eq: req.body.address.state} };
+     usersCollection.find(filters).toArray()
+        .then(result => {
+          console.log('search results:' + result)
+          res.send(result)
+        })
+        .catch(error => console.log(error))
+
+
         })
         .catch(error => console.log(error))
     })
@@ -37,6 +46,14 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
       usersCollection.deleteMany(filters)
         .then(result => {
           console.log(result)
+	  let filters = {"address.state" : {$eq: req.body.address.state} };
+     usersCollection.find(filters).toArray()
+        .then(result => {
+          console.log('search results:' + result)
+          res.send(result)
+        })
+        .catch(error => console.log(error))
+
         })
         .catch(error => console.log(error))
     })
@@ -47,12 +64,27 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
         {"address.city" : req.body.address.city}, {"address.state" : req.body.address.state},
         {"address.zip" : req.body.address.zip}];
       let filters = { $and: address_filters};
-      let fields = req.body.availability.concat(req.body.foodscraps);
-      let update_fields = { $set : fields};
+      let query = {};
+      for (const [key, value] of Object.entries(req.body.availability)) {
+	let key2 = "availability.".concat(key);
+	query[key2] = value;
+      }
+      for (const [key, value] of Object.entries(req.body.foodscraps)) {
+        let key2 = "foodscraps.".concat(key);
+        query[key2] = value;
+      }
+      let update_fields = { $set : query};
       usersCollection.updateMany(filters, update_fields)
         .then(result => {
           console.log(result)
+	  let filters = {"address.state" : {$eq: req.body.address.state} };
+     usersCollection.find(filters).toArray()
+        .then(result => {
+          console.log('search results:' + result)
+          res.send(result)
         })
+        .catch(error => console.log(error))
+	})
         .catch(error => console.log(error))
     })
 

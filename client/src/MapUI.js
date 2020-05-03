@@ -116,9 +116,14 @@ class MapUI extends React.Component {
       (marker) => {marker.setMap(null)}
     )
 
-    this.state.map.setCenter(this.props.searchLocation.latlng)
+    if (this.props.showSearchLocation || this.props.locations.length === 0) {
+    	this.state.map.setCenter(this.props.searchLocation.latlng)
+    } else {
+	this.state.map.setCenter(this.props.locations[0].address.latlng)
+    }
     let newMarkers = this.props.locations.map((location) => this.createMarker(location))
-    if (this.props.locations.length > 0) {
+    console.log(this.props)	
+    if (this.props.locations.length > 0 && this.props.showSearchLocation) {
         let searchMarker = new window.google.maps.Marker({
       position: this.props.searchLocation.latlng,
       map: this.state.map,
@@ -127,6 +132,14 @@ class MapUI extends React.Component {
           scaledSize: new window.google.maps.Size(45, 45)
         }
     });
+     searchMarker.addListener('click', () => {
+      this.state.map.setCenter(searchMarker.getPosition());
+      let infowindow = new window.google.maps.InfoWindow({
+
+        content: 'Your Location'
+      })
+      infowindow.open(this.state.map, searchMarker)
+    })
     newMarkers.push(searchMarker);
     }
     this.setState({
