@@ -49,7 +49,7 @@ class App extends React.Component {
             </div>
             <div class="subtitle">
               <div id="subtitle-heading"> Find a Compost Location Near You! </div>
-              <p id="subtitle-body"> Inspiration: Due to coronavirus budget cuts, New York City will be suspending curbside composting beginning on May 4, 2020 and ending in June 2021. Residents will no longer be able to discard food scraps and yard waste as compost and compostable items must be collected as garbage. </p>
+              <p id="subtitle-body"> Inspiration: Due to coronavirus budget cuts, New York City will be suspending curbside composting beginning on May 4, 2020 and ending in June 2021. Residents will no longer be able to discard food scraps and yard waste as compost and compostable items must be collected as garbage. Compost Share connects those with backyard or personal compost bins with those who want to continue to compost the waste from their homes. </p>
             </div>
           </div>
         </header>
