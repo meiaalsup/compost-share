@@ -66,13 +66,17 @@ class Search extends React.Component {
       .then(response => response.json())
       .then(json => {
         console.log('response from search: ' + json)
-        this.props.updateLocation(json)
-        
+	if ((json || []).length === 0) {
+          window.alert("ERROR: We cannot find any locations near you!");
+	} else {
+          this.props.updateLocation(json)
+        }
       })
       .catch(e => {
         console.log('There has been a problem with your fetch operation: ' + e.message);
       });
      } else {
+	window.alert("ERROR: Please select at least one availability time");
      }
   }
 
