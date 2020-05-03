@@ -56,7 +56,7 @@ class AddLocation extends React.Component {
     Geocode.fromAddress(street + city + state + zip).then(
       response => {
        const { lat, lng } = response.results[0].geometry.location;
-       
+     console.log(lat, lng);       
      let data = {
       address: {
         street: street,
@@ -98,7 +98,7 @@ class AddLocation extends React.Component {
 
     let json = JSON.stringify(data)
     console.log(json)
-    fetch(SERVER_URL + "/addlocation", {
+    fetch("http://localhost:3000/addlocation", {
       method: "POST",
       body: json,
       headers: {
@@ -115,7 +115,8 @@ class AddLocation extends React.Component {
 
     },
     error => {
-      console.error(error);
+    //  console.error(error);
+      window.alert("ERROR: Could not locate the entered address, please try again");
     }
     );
   }
@@ -305,6 +306,9 @@ class AddLocation extends React.Component {
             </div>
           </div>
         </div>
+<button onClick={() =>
+            this.search()
+        }>Search for DropOff</button>
        <button onClick={() => 
             this.addlocation()
         }>Add Location</button>

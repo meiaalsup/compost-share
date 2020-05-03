@@ -1,7 +1,11 @@
 import React from 'react';
 import './Search.css';
-
 import { SERVER_URL } from './config';
+import Geocode from "react-geocode";
+
+Geocode.setApiKey("AIzaSyCpRMzf69BbqeV9IuswQUXeW19VXmJ3azg");
+Geocode.setLanguage("en");
+Geocode.setRegion("en");
 
 class Search extends React.Component {
 
@@ -14,7 +18,10 @@ class Search extends React.Component {
         zipcode: document.getElementById('search_zip').value
       },
       foodscraps: {
-        vegetables: true
+        fruit: document.getElementById('fruit').checked,
+        meat:document.getElementById('meat').checked,
+        dairy:document.getElementById('dairy').checked,
+        yard:document.getElementById('yard').checked
       },
       availability: {
         monday_morn: document.getElementById('search_mon_morn').checked,
@@ -45,18 +52,23 @@ class Search extends React.Component {
 
   search() {
     let state = this.updateState()
-    // TODO: if nothing checked, add alert 
     let checkedSomething = false;
     for (const [key, value] of Object.entries(state.availability)) {
       if (value) {
 	checkedSomething = true;
       }
-    }
-    if (checkedSomething) {
+    } 
+    let foodCheckedSomething = false;
+    for (const [key, value] of Object.entries(state.foodscraps)) {
+      if (value) {
+        foodCheckedSomething = true;
+      }
+    } 
+    if (checkedSomething && foodCheckedSomething) {
     let json = JSON.stringify(state)
     console.log(json)
     console.log(SERVER_URL)
-    fetch(SERVER_URL + "/search", {
+    fetch("http://localhost:3000/search", {
       method: "POST",
       body: json,
       headers: {
@@ -69,31 +81,233 @@ class Search extends React.Component {
 	if ((json || []).length === 0) {
           window.alert("ERROR: We cannot find any locations near you!");
 	} else {
-          this.props.updateLocation(json)
-        }
+	  console.log(state.address)
+	  Geocode.fromAddress(state.address.street + state.address.city + state.address.state + state.address.zipcode).then(
+          response => {
+            const { lat, lng } = response.results[0].geometry.location;
+   	    console.log("search LATLNG:" + lat, lng)
+	    this.props.updateSearchLocation({lat:lat,lng:lng})
+	    this.props.updateLocation(json) 
+	 },
+	  error => {
+            console.error(error);
+            window.alert("ERROR: Could not locate the entered address, please try again");
+    	  });
+	}
       })
       .catch(e => {
         console.log('There has been a problem with your fetch operation: ' + e.message);
       });
      } else {
-	window.alert("ERROR: Please select at least one availability time");
+	window.alert("ERROR: Please select at least one availability time and at least one compost type");
      }
   }
 
-  onChangeHandler(cb) {
-	console.log(cb.value);
+
+
+  deletelocation() {
+    let street = document.getElementById('search_street').value;
+    let city = document.getElementById('search_city').value;
+    let state = document.getElementById('search_state').value;
+    let zip = document.getElementById('search_zip').value;
+    let data = {
+      address: {
+        street: street,
+        city: city,
+        state: state,
+        zipcode: zip,
+      }
+    }
+    Geocode.fromAddress(street + city + state + zip).then(
+      response => {
+    let json = JSON.stringify(data)
+    console.log(json)
+    fetch(SERVER_URL + "/deletelocation", {
+      method: "POST",
+      body: json,
+      headers: {
+        "Content-Type": "application/json"
+      },
+    })
+      .then(response => response.json())
+      .then(json => {
+        console.log(json)
+      })
+      .catch(e => {
+        console.log('There has been a problem with your fetch operation: ' + e.message);
+      });
+    },
+    error => {
+      console.error(error);
+      window.alert("ERROR: Could not locate the entered address, please try again");
+    });
+}
+
+
+  addlocation() {
+    let street = document.getElementById('search_street').value;
+    let city = document.getElementById('search_city').value;
+    let state = document.getElementById('search_state').value;
+    let zip = document.getElementById('search_zip').value;
+    Geocode.fromAddress(street + city + state + zip).then(
+      response => {
+       const { lat, lng } = response.results[0].geometry.location;
+       
+     let data = {
+      address: {
+        street: street,
+        city: city,
+        state: state,
+        zipcode: zip,
+        latlng: {
+	  lat : lat,
+          lng : lng
+	}
+      },
+      foodscraps: {
+        fruit: document.getElementById('fruit').checked,
+	meat:document.getElementById('meat').checked,
+	dairy:document.getElementById('dairy').checked,
+	yard:document.getElementById('yard').checked
+      },
+      availability: {
+        monday_morn: document.getElementById('search_mon_morn').checked,
+        monday_aft: document.getElementById('search_mon_aft').checked,
+        monday_eve: document.getElementById('search_mon_eve').checked,
+        tuesday_morn: document.getElementById('search_tues_morn').checked,
+        tuesday_aft: document.getElementById('search_tues_aft').checked,
+        tuesday_eve: document.getElementById('search_tues_eve').checked,
+        wed_morn: document.getElementById('search_wed_morn').checked,
+        wed_aft: document.getElementById('search_wed_aft').checked,
+        wed_eve: document.getElementById('search_wed_eve').checked,
+        thurs_morn: document.getElementById('search_thurs_morn').checked,
+        thurs_aft: document.getElementById('search_thurs_aft').checked,
+        thurs_eve: document.getElementById('search_thurs_eve').checked,
+        fri_morn: document.getElementById('search_fri_morn').checked,
+        fri_aft: document.getElementById('search_fri_aft').checked,
+        fri_eve: document.getElementById('search_fri_eve').checked,
+        sat_morn: document.getElementById('search_sat_morn').checked,
+        sat_aft: document.getElementById('search_sat_aft').checked,
+        sat_eve: document.getElementById('search_sat_eve').checked,
+        sun_morn: document.getElementById('search_sun_morn').checked,
+        sun_aft: document.getElementById('search_sun_aft').checked,
+        sun_eve: document.getElementById('search_sun_eve').checked,
+      },
+    };
+
+    let json = JSON.stringify(data)
+    console.log(json)
+    fetch(SERVER_URL + "/addlocation", {
+      method: "POST",
+      body: json,
+      headers: {
+        "Content-Type": "application/json"
+      },
+    })
+      .then(response => response.json())
+      .then(json => {
+        console.log(json)
+      })
+      .catch(e => {
+        console.log('There has been a problem with your fetch operation: ' + e.message);
+      });
+
+    },
+    error => {
+      console.error(error);
+      window.alert("ERROR: Could not locate the entered address, please try again");
+    }
+    );
   }
 
-  toggle(element) { console.log("hello");}
+  updatelocation() {
+    let street = document.getElementById('search_street').value;
+    let city = document.getElementById('search_city').value;
+    let state = document.getElementById('search_state').value;
+    let zip = document.getElementById('search_zip').value;
+    Geocode.fromAddress(street + city + state + zip).then(
+      response => {
+       const { lat, lng } = response.results[0].geometry.location;
+       
+     let data = {
+      address: {
+        street: street,
+        city: city,
+        state: state,
+        zipcode: zip,
+        latlng: {
+          lat : lat,
+          lng : lng
+        }
+      },
+      foodscraps: {
+        fruit: document.getElementById('fruit').checked,
+        meat:document.getElementById('meat').checked,
+        dairy:document.getElementById('dairy').checked,
+        yard:document.getElementById('yard').checked
+      },
+      availability: {
+        monday_morn: document.getElementById('search_mon_morn').checked,
+        monday_aft: document.getElementById('search_mon_aft').checked,
+        monday_eve: document.getElementById('search_mon_eve').checked,
+        tuesday_morn: document.getElementById('search_tues_morn').checked,
+        tuesday_aft: document.getElementById('search_tues_aft').checked,
+        tuesday_eve: document.getElementById('search_tues_eve').checked,
+        wed_morn: document.getElementById('search_wed_morn').checked,
+        wed_aft: document.getElementById('search_wed_aft').checked,
+        wed_eve: document.getElementById('search_wed_eve').checked,
+        thurs_morn: document.getElementById('search_thurs_morn').checked,
+        thurs_aft: document.getElementById('search_thurs_aft').checked,
+        thurs_eve: document.getElementById('search_thurs_eve').checked,
+        fri_morn: document.getElementById('search_fri_morn').checked,
+        fri_aft: document.getElementById('search_fri_aft').checked,
+        fri_eve: document.getElementById('search_fri_eve').checked,
+        sat_morn: document.getElementById('search_sat_morn').checked,
+        sat_aft: document.getElementById('search_sat_aft').checked,
+        sat_eve: document.getElementById('search_sat_eve').checked,
+        sun_morn: document.getElementById('search_sun_morn').checked,
+        sun_aft: document.getElementById('search_sun_aft').checked,
+        sun_eve: document.getElementById('search_sun_eve').checked,
+      },
+    };
+
+    let json = JSON.stringify(data)
+    console.log(json)
+    fetch(SERVER_URL + "/updatelocation", {
+      method: "POST",
+      body: json,
+      headers: {
+        "Content-Type": "application/json"
+      },
+    })
+      .then(response => response.json())
+      .then(json => {
+        console.log(json)
+      })
+      .catch(e => {
+        console.log('There has been a problem with your fetch operation: ' + e.message);
+     });
+
+    },
+    error => {
+      console.error(error);
+      window.alert("ERROR: Could not locate the entered address, please try again");
+
+    }
+    );
+  }
+
+
 
   render() {
     return ( 
       <div>
         <div className="Search">
           <header className="Search-header">
-             <h1> Search For Drop Off Locations </h1>
+             <h1> Enter Details for Drop Off Below </h1>
           </header>
         </div>
+ 	<p> </p>
         <div>
           <form>
             <label htmlFor="search_street">Street:</label>
@@ -202,9 +416,37 @@ class Search extends React.Component {
         </div>	
       </div>
     </div>
-	<button onClick={() => 
+    <p> </p>
+    <div>
+        Types of Compost
+        <div>
+      <div className="Search">
+        <subheading className="Search-day">
+        </subheading>
+        <input type="checkbox" id="fruit" name="fruit" />
+        <label htmlFor="fruit">Fruit/Vegetables   </label>
+        <input type="checkbox" id="dairy" name="dairy" />
+        <label htmlFor="dairy">Dairy   </label>
+        <input type="checkbox" id="meat" name="meat" />
+        <label htmlFor="meat">Meat   </label>
+         <input type="checkbox" id="yard" name="yard" />
+        <label htmlFor="yard">Yard Waste</label>
+       </div>
+    </div>
+   </div>
+   <p> </p>
+   <button onClick={() =>
             this.search()
-        }>Search</button>
+        }>Search for DropOff</button>
+       <button onClick={() =>
+            this.addlocation()
+        }>Add Location</button>
+        <button onClick={() =>
+            this.updatelocation()
+        }>Update Location</button>
+        <button onClick={() =>
+            this.deletelocation()
+        }>Delete Location</button>
 
       </div>
     )

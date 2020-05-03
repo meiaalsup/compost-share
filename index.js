@@ -30,13 +30,9 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
 
     /**Delete Location to database **/
     app.post('/deletelocation', (req, res) => {
-      let address_filters = [];
-      for (const [key, value] of Object.entries(req.body.address)) {
-        let query = {};
-        let key2 = "address.".concat(key);
-        query[key2] = value;
-        address_filters.push(query);
-      }
+      let address_filters = [{"address.street" : req.body.address.street}, 
+	{"address.city" : req.body.address.city}, {"address.state" : req.body.address.state},
+	{"address.zip" : req.body.address.zip}];
       let filters = { $and: address_filters};
       usersCollection.deleteMany(filters)
         .then(result => {
@@ -47,15 +43,12 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
 
     /**Update Location to database **/
     app.post('/updatelocation', (req, res) => {
-      let address_filters = [];
-      for (const [key, value] of Object.entries(req.body.address)) {
-        let query = {};
-        let key2 = "address.".concat(key);
-        query[key2] = value;
-        address_filters.push(query);
-      }
+      let address_filters = [{"address.street" : req.body.address.street}, 
+        {"address.city" : req.body.address.city}, {"address.state" : req.body.address.state},
+        {"address.zip" : req.body.address.zip}];
       let filters = { $and: address_filters};
-      let update_fields = { $set : req.body.availability};
+      let fields = req.body.availability.concat(req.body.foodscraps);
+      let update_fields = { $set : fields};
       usersCollection.updateMany(filters, update_fields)
         .then(result => {
           console.log(result)
@@ -73,8 +66,17 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
           query[key2] = value;
           availability_filters.push(query);
         }
+      }
+      let food_filters = []; 
+      for (const [key, value] of Object.entries(req.body.foodscraps)) {
+        if (value) {
+          let key2 = "foodscraps.".concat(key);
+          let query = {};
+          query[key2] = value;
+          food_filters.push(query);
+        }
       }  
-     let filters = { $and: [{"address.state" : {$eq: req.body.address.state} }, {$or: availability_filters}]};
+     let filters = { $and: [{"address.state" : {$eq: req.body.address.state} }, {$or: availability_filters}, {$or : food_filters}]};
      usersCollection.find(filters).toArray()
         .then(result => {
           console.log('search results:' + result)

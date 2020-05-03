@@ -10,33 +10,15 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      locations: [
-      {
-        address: {
+      locations: [],
+    searchLocation: {
           latlng: {
-            lat: -34.597,
-            lng: 150.644,
+            lat: 37.4748,
+            lng: -121.896,
           },
-        },
-        foodscraps: {
-          vegetables: true,
-          fruits: true
-        }
-      },
-      {
-        address: {
-          latlng: {
-            lat: -34.397,
-            lng: 150.544,
-          },
-        },
-        foodscraps: {
-          vegetables: true
-        }
-      },
-    ]}
+}
   }
-  
+}  
   getGoogleMapScript() {
     console.log(apiKey)
     let mapsScript = document.getElementById("gMapsScript")
@@ -49,6 +31,13 @@ class App extends React.Component {
     this.setState({locations: locations})
   }
 
+
+  updateSearchLocation(latlng) {
+    console.log("update search location: " + latlng.lat)
+    this.setState({searchLocation: {latlng:latlng}})
+    console.log("updted search location: " + this.state.searchLocation.latlng.lat)
+  }
+
   render() {
     return (
       <div className="App">
@@ -56,10 +45,9 @@ class App extends React.Component {
           <h1> Compost Share </h1>
         </header>
 
-        <MapUI mapScript={this.getGoogleMapScript()} locations={this.state.locations} />
-        <Search updateLocation={(locations) => this.updateLocations(locations)} />
+        <MapUI mapScript={this.getGoogleMapScript()} locations={this.state.locations} searchLocation={this.state.searchLocation} />
+        <Search updateLocation={(locations) => this.updateLocations(locations)} updateSearchLocation={(latlng) => this.updateSearchLocation(latlng)} />
 	<p> </p>
-        <AddLocation />
       </div>
     )
   }
