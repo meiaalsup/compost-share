@@ -212,67 +212,95 @@ class AddLocation extends React.Component {
        <div>
           Availability (if adding or updating location)
           <div>
-          <b>Monday:</b>
-          <input type="checkbox" id="add_mon_morn" name="add_mon_morn"/>
-          <label htmlFor="add_mon_morn"> 8am-12pm</label>
-          <input type="checkbox" id="add_mon_aft" name="add_mon_aft"/>
-          <label htmlFor="add_mon_aft"> 12pm-4pm</label>
-          <input type="checkbox" id="add_mon_eve" name="add_mon_eve"/>
-          <label htmlFor="add_mon_eve"> 4pm-8pm</label>
+            <div className="AddLocation">
+              <subheading className="AddLocation-day">
+                <t1>Mon:</t1>
+              </subheading>
+              <input type="checkbox" id="add_mon_morn" name="add_mon_morn"/>
+              <label htmlFor="add_mon_morn">8am-12pm </label>
+              <input type="checkbox" id="add_mon_aft" name="add_mon_aft"/>
+              <label htmlFor="add_mon_aft">12pm-4pm </label>
+              <input type="checkbox" id="add_mon_eve" name="add_mon_eve"/>
+              <label htmlFor="add_mon_eve">4pm-8pm </label>
+            </div>
           </div>
           <div>
-          <b>Tuesday:</b>
-          <input type="checkbox" id="add_tues_morn" name="add_tues_morn"/>
-          <label htmlFor="add_tues_morn"> 8am-12pm</label>
-          <input type="checkbox" id="add_tues_aft" name="add_tues_aft"/>
-          <label htmlFor="add_tues_aft"> 12pm-4pm</label>
-          <input type="checkbox" id="add_tues_eve" name="add_tues_eve"/>
-          <label htmlFor="add_tues_eve"> 4pm-8pm</label>
+            <div className="AddLocation">
+              <subheading className="AddLocation-day">
+                <t1>Tue:</t1>
+              </subheading>
+              <input type="checkbox" id="add_tues_morn" name="add_tues_morn"/>
+              <label htmlFor="add_tues_morn">8am-12pm </label>
+              <input type="checkbox" id="add_tues_aft" name="add_tues_aft"/>
+              <label htmlFor="add_tues_aft">12pm-4pm </label>
+              <input type="checkbox" id="add_tues_eve" name="add_tues_eve"/>
+              <label htmlFor="add_tues_eve">4pm-8pm </label>
+            </div>
           </div>
           <div>
-          <b>Wednesday:</b>
-          <input type="checkbox" id="add_wed_morn" name="add_wed_morn"/>
-          <label htmlFor="add_wed_morn"> 8am-12pm</label>
-          <input type="checkbox" id="add_wed_aft" name="add_wed_aft"/>
-          <label htmlFor="add_wed_aft"> 12pm-4pm</label>
-          <input type="checkbox" id="add_wed_eve" name="add_wed_eve"/>
-          <label htmlFor="add_wed_eve"> 4pm-8pm</label>
-          </div>
-	  <div>
-          <b>Thursday:</b>
-          <input type="checkbox" id="add_thurs_morn" name="add_thurs_morn"/>
-          <label htmlFor="add_thurs_morn"> 8am-12pm</label>
-          <input type="checkbox" id="add_thurs_aft" name="add_thurs_aft"/>
-          <label htmlFor="add_thurs_aft"> 12pm-4pm</label>
-          <input type="checkbox" id="add_thurs_eve" name="add_thurs_eve"/>
-          <label htmlFor="add_thurs_eve"> 4pm-8pm</label>
+            <div className="AddLocation">
+              <subheading className="AddLocation-day">
+                <t1>Wed:</t1>
+              </subheading>
+              <input type="checkbox" id="add_wed_morn" name="add_wed_morn"/>
+              <label htmlFor="add_wed_morn">8am-12pm </label>
+              <input type="checkbox" id="add_wed_aft" name="add_wed_aft"/>
+              <label htmlFor="add_wed_aft">12pm-4pm </label>
+              <input type="checkbox" id="add_wed_eve" name="add_wed_eve"/>
+              <label htmlFor="add_wed_eve">4pm-8pm </label>
+            </div>
           </div>
           <div>
-          <b>Friday:</b>
-          <input type="checkbox" id="add_fri_morn" name="add_fri_morn"/>
-          <label htmlFor="add_fri_morn"> 8am-12pm</label>
-          <input type="checkbox" id="add_fri_aft" name="add_fri_aft"/>
-          <label htmlFor="add_fri_aft"> 12pm-4pm</label>
-          <input type="checkbox" id="add_fri_eve" name="add_fri_eve"/>
-          <label htmlFor="add_fri_eve"> 4pm-8pm</label>
+            <div className="AddLocation">
+              <subheading className="AddLocation-day">
+                <t1>Thu:</t1>
+              </subheading>
+              <input type="checkbox" id="add_thurs_morn" name="add_thurs_morn"/>
+              <label htmlFor="add_thurs_morn">8am-12pm </label>
+              <input type="checkbox" id="add_thurs_aft" name="add_thurs_aft"/>
+              <label htmlFor="add_thurs_aft">12pm-4pm </label>
+              <input type="checkbox" id="add_thurs_eve" name="add_thurs_eve"/>
+              <label htmlFor="add_thurs_eve">4pm-8pm </label>
+            </div>
           </div>
           <div>
-          <b>Saturday:</b>
-          <input type="checkbox" id="add_sat_morn" name="add_sat_morn"/>
-          <label htmlFor="add_sat_morn"> 8am-12pm</label>
-          <input type="checkbox" id="add_sat_aft" name="add_sat_aft"/>
-          <label htmlFor="add_sat_aft"> 12pm-4pm</label>
-          <input type="checkbox" id="add_sat_eve" name="add_sat_eve"/>
-          <label htmlFor="add_sat_eve"> 4pm-8pm</label>
+            <div className="AddLocation">
+              <subheading className="AddLocation-day">
+                <t1>Fri:</t1>
+              </subheading>
+              <input type="checkbox" id="add_fri_morn" name="add_fri_morn"/>
+              <label htmlFor="add_fri_morn">8am-12pm </label>
+              <input type="checkbox" id="add_fri_aft" name="add_fri_aft"/>
+              <label htmlFor="add_fri_aft">12pm-4pm </label>
+              <input type="checkbox" id="add_fri_eve" name="add_fri_eve"/>
+              <label htmlFor="add_fri_eve">4pm-8pm </label>
+            </div>
           </div>
           <div>
-          <b>Sunday:</b>
-          <input type="checkbox" id="add_sun_morn" name="add_sun_morn"/>
-          <label htmlFor="add_sun_morn"> 8am-12pm</label>
-          <input type="checkbox" id="add_sun_aft" name="add_sun_aft"/>
-          <label htmlFor="add_sun_aft"> 12pm-4pm</label>
-          <input type="checkbox" id="add_sun_eve" name="add_sun_eve"/>
-          <label htmlFor="add_sun_eve"> 4pm-8pm</label>
+            <div className="AddLocation">
+              <subheading className="AddLocation-day">
+                <t1>Sat:</t1>
+              </subheading>
+              <input type="checkbox" id="add_sat_morn" name="add_sat_morn"/>
+              <label htmlFor="add_sat_morn">8am-12pm </label>
+              <input type="checkbox" id="add_sat_aft" name="add_sat_aft"/>
+              <label htmlFor="add_sat_aft">12pm-4pm </label>
+              <input type="checkbox" id="add_sat_eve" name="add_sat_eve"/>
+              <label htmlFor="add_sat_eve">4pm-8pm </label>
+            </div>
+          </div>
+          <div>
+            <div className="AddLocation">
+              <subheading className="AddLocation-day">
+                <t1>Sun:</t1>
+              </subheading>
+              <input type="checkbox" id="add_sun_morn" name="add_sun_morn"/>
+              <label htmlFor="add_sun_morn">8am-12pm </label>
+              <input type="checkbox" id="add_sun_aft" name="add_sun_aft"/>
+              <label htmlFor="add_sun_aft">12pm-4pm </label>
+              <input type="checkbox" id="add_sun_eve" name="add_sun_eve"/>
+              <label htmlFor="add_sun_eve">4pm-8pm </label>
+            </div>
           </div>
         </div>
        <button onClick={() => 
