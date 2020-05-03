@@ -1,5 +1,7 @@
 # compost-share
-Cal Earth Hacks - Compost Sharing Map
+Cal Earth Hacks - Compost Sharing Map 
+
+
 Authors: Jena Alsup, Meena Rajan, Meia Alsup
 
 ## Motivation Statement
