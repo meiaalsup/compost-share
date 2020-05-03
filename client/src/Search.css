@@ -1,33 +1,45 @@
 @import "App.css";
 
+
+.input {
+  display: flex;
+  flex-flow: column wrap;
+  padding: 2vh;
+  font-family: monospace;
+}
+
+.SearchFilters {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
 .Search {
-  font-family: "Courier New", Courier, monospace;
+  display: flex;
+  flex-flow: column wrap;
+  padding: 10px;
 }
 
-.Search-day {
-  font-family: "Lucida Console", Courier, monospace;
+.NoFlex {
+  display: inline;
 }
 
-.Search-availability {
-  font-family: "Arial Black", "Arial", sans-serif;
-}
-
-.Search-header {
-  font-family: "Arial Black", Gadget, sans-serif;
-  background-color: var(--bg-color);
+.SearchHeading {
+  font-weight: bolder;
   min-height: 3vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  font-size: calc(7px + .3vmin);
+  font-size: calc(10px + 1vmin);
   color: var(--main-color);
+  padding: .5vh;
 }
 
 .button-container {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
+  padding: 2vh;
 }
 
 .location-container {
@@ -48,6 +60,7 @@
   display: inline-block;
   border: none;
   transition: all 0.4s ease 0s;
+  margin: .5vw;
   margin-left: .5vw;
   margin-right: .5vw;
   font-weight: bold;

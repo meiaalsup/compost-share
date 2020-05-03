@@ -303,143 +303,6 @@ class Search extends React.Component {
   render() {
     return ( 
       <div>
-        <div className="Search">
-          <header className="Search-header">
-            <h1> Enter Details for Drop Off Below </h1>
-          </header>
-        </div>
-        <p> </p>
-        <div>
-          <form>
-            <label htmlFor="search_street">Street:</label>
-            <input type="text" id="search_street" name="search_street"/><br/>
-            <label htmlFor="search_city">City:</label>
-            <input type="text" id="search_city" name="search_city"/>
-            <label htmlFor="search_state">State:</label>
-            <input type="text" id="search_state" name="search_state"/>
-            <label htmlFor="search_zip">Zip Code:</label>
-            <input type="text" id="search_zip" name="search_zip"/>
-          </form>
-        </div>
-        <p> </p> 
-        <div>
-          <div className="Search">
-            <subheading className="Search-availability">
-              <t1>Availability</t1>
-            </subheading>
-          </div>  
-          <div>
-            <div className="Search">
-              <subheading className="Search-day">
-                <t1>Mon:</t1>
-              </subheading>
-              <input type="checkbox" id="search_mon_morn" name="search_mon_morn"/>
-              <label htmlFor="search_mon_morn">8am-12pm </label>
-              <input type="checkbox" id="search_mon_aft" name="search_mon_aft"/>
-              <label htmlFor="search_mon_aft">12pm-4pm </label>
-              <input type="checkbox" id="search_mon_eve" name="search_mon_eve"/>
-              <label htmlFor="search_mon_eve">4pm-8pm </label>
-            </div>
-
-            <div>
-              <div className="Search">
-                <subheading className="Search-day">
-                  <t1>Tue:</t1>
-                </subheading>
-                <input type="checkbox" id="search_tues_morn" name="search_tues_morn"/>
-                <label htmlFor="search_tues_morn">8am-12pm </label>
-                <input type="checkbox" id="search_tues_aft" name="search_tues_aft"/>
-                <label htmlFor="search_tues_aft">12pm-4pm </label>
-                <input type="checkbox" id="search_tues_eve" name="search_tues_eve"/>
-                <label htmlFor="search_tues_eve">4pm-8pm </label>
-              </div>
-            </div>
-            <div>
-              <div className="Search">
-                <subheading className="Search-day">
-                  <t1>Wed:</t1>
-                </subheading>
-                <input type="checkbox" id="search_wed_morn" name="search_wed_morn" />
-                <label htmlFor="search_wed_morn">8am-12pm </label>
-                <input type="checkbox" id="search_wed_aft" name="search_wed_aft" />
-                <label htmlFor="search_wed_aft">12pm-4pm </label>
-                <input type="checkbox" id="search_wed_eve" name="search_wed_eve" />
-                <label htmlFor="search_wed_eve">4pm-8pm </label>
-              </div>
-            </div>
-            <div>
-              <div className="Search">
-                <subheading className="Search-day">
-                  <t1>Thu:</t1>
-                </subheading>
-                <input type="checkbox" id="search_thurs_morn" name="search_thurs_morn" />
-                <label htmlFor="search_thurs_morn">8am-12pm </label>
-                <input type="checkbox" id="search_thurs_aft" name="search_thurs_aft" />
-                <label htmlFor="search_thurs_aft">12pm-4pm </label>
-                <input type="checkbox" id="search_thurs_eve" name="search_thurs_eve" />
-                <label htmlFor="search_thurs_eve">4pm-8pm </label>
-              </div>
-            </div>
-            <div>
-              <div className="Search">
-                <subheading className="Search-day">
-                  <t1>Fri:</t1>
-                </subheading>
-                <input type="checkbox" id="search_fri_morn" name="search_fri_morn" />
-                <label htmlFor="search_fri_morn">8am-12pm </label>
-                <input type="checkbox" id="search_fri_aft" name="search_fri_aft" />
-                <label htmlFor="search_fri_aft">12pm-4pm </label>
-                <input type="checkbox" id="search_fri_eve" name="search_fri_eve" />
-                <label htmlFor="search_fri_eve">4pm-8pm </label>
-              </div>
-            </div>
-            <div>
-              <div className="Search">
-                <subheading className="Search-day">
-                  <t1>Sat:</t1>
-                </subheading>
-                <input type="checkbox" id="search_sat_morn" name="search_sat_morn" />
-                <label htmlFor="search_sat_morn">8am-12pm </label>
-                <input type="checkbox" id="search_sat_aft" name="search_sat_aft" />
-                <label htmlFor="search_sat_aft">12pm-4pm </label>
-                <input type="checkbox" id="search_sat_eve" name="search_sat_eve" />
-                <label htmlFor="search_sat_eve">4pm-8pm </label>
-              </div>
-            </div>
-            <div>
-              <div className="Search">
-                <subheading className="Search-day">
-                  <t1>Sun:</t1>
-                </subheading>
-                <input type="checkbox" id="search_sun_morn" name="search_sun_morn" />
-                <label htmlFor="search_sun_morn">8am-12pm </label>
-                <input type="checkbox" id="search_sun_aft" name="search_sun_aft" />
-                <label htmlFor="search_sun_aft">12pm-4pm </label>
-                <input type="checkbox" id="search_sun_eve" name="search_sun_eve" />
-                <label htmlFor="search_sun_eve">4pm-8pm </label>
-              </div>  
-            </div>
-          </div>
-        </div>
-        <p> </p>
-        <div>
-          Types of Compost
-          <div>
-            <div className="Search">
-              <subheading className="Search-day">
-              </subheading>
-              <input type="checkbox" id="fruit" name="fruit" />
-              <label htmlFor="fruit">Fruit/Vegetables   </label>
-              <input type="checkbox" id="dairy" name="dairy" />
-              <label htmlFor="dairy">Dairy   </label>
-              <input type="checkbox" id="meat" name="meat" />
-              <label htmlFor="meat">Meat   </label>
-              <input type="checkbox" id="yard" name="yard" />
-              <label htmlFor="yard">Yard Waste</label>
-            </div>
-          </div>
-        </div>
-        <p> </p>
         <div className="button-container">
           <button className="map-button" id="search" onClick={() =>
               this.search()
@@ -464,8 +327,123 @@ class Search extends React.Component {
             </button>
           </div>
         </div>
+        <div class="input">
+          <div className="Search" id="AddressSearch">
+            <div className="SearchHeading">
+              Address
+            </div>
+            <form>
+              <label htmlFor="search_street">Street:</label>
+              <input type="text" id="search_street" name="search_street"/><br/>
+              <label htmlFor="search_city">City:</label>
+              <input type="text" id="search_city" name="search_city"/>
+              <label htmlFor="search_state">State:</label>
+              <input type="text" id="search_state" name="search_state"/>
+              <label htmlFor="search_zip">Zip Code:</label>
+              <input type="text" id="search_zip" name="search_zip"/>
+            </form>
+          </div>
+          <div className="SearchFilters">
+            <div className="Search" id="AvailabilitySearch">
+              <div className="SearchHeading">
+                Availability
+              </div>
+              <div className="AvailabilityRow">
+                Mon: 
+                <input type="checkbox" id="search_mon_morn" name="search_mon_morn"/>
+                <label htmlFor="search_mon_morn">8am-12pm </label>
+                <input type="checkbox" id="search_mon_aft" name="search_mon_aft"/>
+                <label htmlFor="search_mon_aft">12pm-4pm </label>
+                <input type="checkbox" id="search_mon_eve" name="search_mon_eve"/>
+                <label htmlFor="search_mon_eve">4pm-8pm </label>
+              </div>
+
+              <div>
+                <div className="AvailabilityRow">
+                  Tue:
+                  <input type="checkbox" id="search_tues_morn" name="search_tues_morn"/>
+                  <label htmlFor="search_tues_morn">8am-12pm </label>
+                  <input type="checkbox" id="search_tues_aft" name="search_tues_aft"/>
+                  <label htmlFor="search_tues_aft">12pm-4pm </label>
+                  <input type="checkbox" id="search_tues_eve" name="search_tues_eve"/>
+                  <label htmlFor="search_tues_eve">4pm-8pm </label>
+                </div>
+              </div>
+              <div>
+                <div className="AvailabilityRow">
+                  Wed:
+                  <input type="checkbox" id="search_wed_morn" name="search_wed_morn" />
+                  <label htmlFor="search_wed_morn">8am-12pm </label>
+                  <input type="checkbox" id="search_wed_aft" name="search_wed_aft" />
+                  <label htmlFor="search_wed_aft">12pm-4pm </label>
+                  <input type="checkbox" id="search_wed_eve" name="search_wed_eve" />
+                  <label htmlFor="search_wed_eve">4pm-8pm </label>
+                </div>
+              </div>
+              <div>
+                <div className="AvailabilityRow">
+                  Thu:
+                  <input type="checkbox" id="search_thurs_morn" name="search_thurs_morn" />
+                  <label htmlFor="search_thurs_morn">8am-12pm </label>
+                  <input type="checkbox" id="search_thurs_aft" name="search_thurs_aft" />
+                  <label htmlFor="search_thurs_aft">12pm-4pm </label>
+                  <input type="checkbox" id="search_thurs_eve" name="search_thurs_eve" />
+                  <label htmlFor="search_thurs_eve">4pm-8pm </label>
+                </div>
+              </div>
+              <div>
+                <div className="AvailabilityRow">
+                  Fri:
+                  <input type="checkbox" id="search_fri_morn" name="search_fri_morn" />
+                  <label htmlFor="search_fri_morn">8am-12pm </label>
+                  <input type="checkbox" id="search_fri_aft" name="search_fri_aft" />
+                  <label htmlFor="search_fri_aft">12pm-4pm </label>
+                  <input type="checkbox" id="search_fri_eve" name="search_fri_eve" />
+                  <label htmlFor="search_fri_eve">4pm-8pm </label>
+                </div>
+              </div>
+              <div>
+                <div className="AvailabilityRow">
+                  Sat:
+                  <input type="checkbox" id="search_sat_morn" name="search_sat_morn" />
+                  <label htmlFor="search_sat_morn">8am-12pm </label>
+                  <input type="checkbox" id="search_sat_aft" name="search_sat_aft" />
+                  <label htmlFor="search_sat_aft">12pm-4pm </label>
+                  <input type="checkbox" id="search_sat_eve" name="search_sat_eve" />
+                  <label htmlFor="search_sat_eve">4pm-8pm </label>
+                </div>
+              </div>
+              <div>
+                <div className="AvailabilityRow">
+                  Sun:
+                  <input type="checkbox" id="search_sun_morn" name="search_sun_morn" />
+                  <label htmlFor="search_sun_morn">8am-12pm </label>
+                  <input type="checkbox" id="search_sun_aft" name="search_sun_aft" />
+                  <label htmlFor="search_sun_aft">12pm-4pm </label>
+                  <input type="checkbox" id="search_sun_eve" name="search_sun_eve" />
+                  <label htmlFor="search_sun_eve">4pm-8pm </label>
+                </div>  
+              </div>
+            </div>
+            <div className="Search" id="AddressSearch">
+              <div className="SearchHeading">
+                Types of Compost
+              </div>
+              <div id="CompostTypeSearch">
+                <input type="checkbox" id="fruit" name="fruit" />
+                <label htmlFor="fruit">Fruit/Vegetables   </label>
+                <input type="checkbox" id="dairy" name="dairy" />
+                <label htmlFor="dairy">Dairy   </label>
+                <input type="checkbox" id="meat" name="meat" />
+                <label htmlFor="meat">Meat   </label>
+                <input type="checkbox" id="yard" name="yard" />
+                <label htmlFor="yard">Yard Waste</label>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-              )
+    )
   }
 
 }
