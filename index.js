@@ -93,11 +93,12 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
         })
         .catch(error => console.log(error))
     })
+
+    app.get('/', (req, res) => res.send("hi"))
+    app.listen(port, () => console.log(`Compost-Share Server listening at http://localhost:${port}`))
     
   })
   .catch(error => console.error(error))
 
 
-app.get('/', (req, res) => res.send("hi"))
-app.listen(port, () => console.log(`Compost-Share Server listening at http://localhost:${port}`))
 
