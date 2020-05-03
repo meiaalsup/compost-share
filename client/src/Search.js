@@ -2,8 +2,9 @@ import React from 'react';
 import './Search.css';
 import { SERVER_URL } from './config';
 import Geocode from "react-geocode";
+import geocodeApiKey from './private'
 
-Geocode.setApiKey("AIzaSyCpRMzf69BbqeV9IuswQUXeW19VXmJ3azg");
+Geocode.setApiKey(geocodeApiKey);
 Geocode.setLanguage("en");
 Geocode.setRegion("en");
 

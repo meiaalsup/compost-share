@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import Search from './Search';
 import MapUI from './MapUI';
-import apiKey from './private'
+import googleApiKey from './private'
 
 class App extends React.Component {
 
@@ -21,7 +21,7 @@ class App extends React.Component {
 }
   getGoogleMapScript() {
     let mapsScript = document.getElementById("gMapsScript")
-    mapsScript.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}`
+    mapsScript.src = `https://maps.googleapis.com/maps/api/js?key=${googleApiKey}`
     return mapsScript
   }
 
