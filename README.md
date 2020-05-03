@@ -22,8 +22,7 @@ Authors: Jena Alsup, Meena Rajan, Meia Alsup
 * [Netlify](https://www.netlify/): deployment probably: compost-share.heroku.com
    * Netlify functions for a back end server
    * netlify-functions-express
-* [Express-Netlify](https://github.com/netlify-labs/netlify-functions-express/blob/master/functions/app/index.js)
-
+* [Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs?singlepage=true)
 ## Initial Setup Instructions
 
 ### Install Node

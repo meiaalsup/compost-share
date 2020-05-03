@@ -1,6 +1,8 @@
 import React from 'react';
 import './Search.css';
 
+import { SERVER_URL } from './config';
+
 class Search extends React.Component {
 
   updateState() {
@@ -46,7 +48,8 @@ class Search extends React.Component {
     // TODO: if nothing checked, add alert 
     let json = JSON.stringify(state)
     console.log(json)
-    fetch("http://localhost:3000/search", {
+    console.log(SERVER_URL)
+    fetch(SERVER_URL + "/search", {
       method: "POST",
       body: json,
       headers: {
