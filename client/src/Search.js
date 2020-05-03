@@ -12,7 +12,9 @@ class Search extends React.Component {
         zipcode: document.getElementById('search_zip').value
       },
       foodscraps: {
-        vegetables: true
+        vegetables: true,
+        fruits: true,
+        yard: true
       },
       availability: {
         monday_morn: document.getElementById('search_mon_morn').checked,

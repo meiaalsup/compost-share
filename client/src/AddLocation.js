@@ -67,7 +67,8 @@ class AddLocation extends React.Component {
 	}
       },
       foodscraps: {
-        vegetables: true
+        vegetables: true,
+        fruits: true
       },
       availability: {
         monday_morn: document.getElementById('add_mon_morn').checked,

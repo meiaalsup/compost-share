@@ -31,7 +31,8 @@ class App extends React.Component {
           },
         },
         foodscraps: {
-          vegetables: true
+          vegetables: true,
+          fruits: true
         }
       },
     ]}
