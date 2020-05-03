@@ -2,6 +2,10 @@
 	font-family: "Lucida Console", Courier, monospace;
 }
 
+.AddLocation-availability {
+    font-family: "Arial Black", "Arial", sans-serif;
+}
+
 .AddLocation-header {
   font-family: "Arial Black", Gadget, sans-serif;
   background-color: #d2f8d2;
@@ -10,6 +14,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(5px + .2vmin);
+  font-size: calc(7px + .3vmin);
   color: #093909;
 }

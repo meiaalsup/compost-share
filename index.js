@@ -76,7 +76,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
           food_filters.push(query);
         }
       }  
-     let filters = { $and: [{"address.state" : {$eq: req.body.address.state} }, {$or: availability_filters}, {$or : food_filters}]};
+     let filters = { $and: [{"address.state" : {$eq: req.body.address.state} }, {$or: availability_filters}, {$and : food_filters}]};
      usersCollection.find(filters).toArray()
         .then(result => {
           console.log('search results:' + result)

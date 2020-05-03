@@ -2,6 +2,15 @@
 Cal Earth Hacks - Compost Sharing Map
 Authors: Jena Alsup, Meena Rajan, Meia Alsup
 
+## TODO LIST
+* load the markers on page load at the beginning
+* remove our home addresses, and put more dummy data
+* make the rest of search do something, or only include the state box
+* Make repo public
+    * generate new private api keys and put in a file to be git ignored
+* Turn in results
+    * Screenshots / Video
+
 ## Motivation Statement
 * Cambridge cancelled compost
 
@@ -19,10 +28,15 @@ Authors: Jena Alsup, Meena Rajan, Meia Alsup
 
 
 ## Deployment
-* [Netlify](https://www.netlify/): deployment probably: compost-share.heroku.com
-   * Netlify functions for a back end server
-   * netlify-functions-express
+* [Netlify](https://www.netlify/) for React Front End
+    * `npm run-script build`
+    * `netlify deploy --dir=build --prod`
+
 * [Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs?singlepage=true)
+    * `git push heroku master`
+    * `heroku log --tail`
+
+
 ## Initial Setup Instructions
 
 ### Install Node

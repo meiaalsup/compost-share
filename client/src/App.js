@@ -9,6 +9,7 @@ class App extends React.Component {
 
   constructor(props) {
     super(props);
+    console.log(process.env.NODE_ENV)
     this.state = {
       locations: [],
     searchLocation: {
@@ -17,8 +18,8 @@ class App extends React.Component {
             lng: -121.896,
           },
 }
-  }
 }  
+}
   getGoogleMapScript() {
     console.log(apiKey)
     let mapsScript = document.getElementById("gMapsScript")
@@ -27,7 +28,6 @@ class App extends React.Component {
   }
 
   updateLocations(locations) {
-    console.log('update location called with locations: ' + locations)
     this.setState({locations: locations})
   }
 

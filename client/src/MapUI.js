@@ -1,15 +1,47 @@
 import React from 'react';
 import './MapUI.css'
 
+const displayString = {
+  monday_morn: "Monday Morning",
+  monday_aft: "Monday Afternoon",
+  monday_eve: "Monday Evening",
+  tuesday_morn: "Tuesday Morning",
+  tuesday_aft: "Tuesday Afternoon",
+  tuesday_eve: "Tuesday Evening",
+  wed_morn: "Wednesday Morning",
+  wed_aft: "Wednesday Afternoon",
+  wed_eve: "Wednesday Evening",
+  thurs_morn: "Thursday Morning",
+  thurs_aft: "Thursday Afternoon",
+  thurs_eve: "Thursday Evening",
+  fri_morn: "Friday Morning",
+  fri_aft: "Friday Afternoon",
+  fri_eve: "Friday Evening",
+  sat_morn: "Saturday Morning",
+  sat_aft: "Saturday Afternoon",
+  sat_eve: "Saturday Evening",
+  sun_morn: "Sunday Morning",
+  sun_aft: "Sunday Afternoon",
+  sun_eve: "Sunday Evening"
+}
+
+const foodDisplayString = {
+  fruit: "Fruits/Vegetables",
+  dairy: "Dairy",
+  meat: "Meat",
+  yeard: "Yard Waste"
+}
+
+const DEFAULT_CENTER = {
+  lat: 37.869,
+  lng: -122.264
+}
+
 class MapUI extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       // map will be here, but we don't initialize until component mounts
-      addresses: [
-        {lat: -34.397,
-          lng: 150.644},
-      ],
       markers: [],
     };
   }
@@ -19,7 +51,7 @@ class MapUI extends React.Component {
     this.props.mapScript.addEventListener('load', () => {
       let map = new window.google.maps.Map(
         document.getElementById('map'), {
-          center: this.props.searchLocation.latlng,
+          center: DEFAULT_CENTER,
           zoom: 8
         }
       )
@@ -28,60 +60,62 @@ class MapUI extends React.Component {
     })
   }
 
-  createMarker(location) { 
+  createMarker(location) {
     let marker = new window.google.maps.Marker({
       position: location.address.latlng,
       map: this.state.map,
     });
 
-    let availability_filters = "";
-      for (const [key, value] of Object.entries(location.availability)) {
-        if (value) {
-	  let day = key.substring(0, key.indexOf("_"));
-          day = day.charAt(0).toUpperCase() + day.slice(1) + ': ';  
-	  let time = key.substring(key.indexOf("_")+1);
-	  let dateTime = "8am-12pm";
-	  if (time === "aft") {
-		dateTime = "12pm-4pm";
-	  } else if (time === "eve") {
-		dateTime = "4pm-8pm";
-  	  }
-	  let i = day.concat(dateTime);
-	  i = i.concat('</br>');
-          availability_filters = availability_filters.concat(i);
-        }
-      }
-    let food_filters = "";
-      for (const [key, value] of Object.entries(location.foodscraps)) {
-        if (value) {
-	  let a = key.charAt(0).toUpperCase() + key.slice(1);
-	  a = a.concat("</br> ");
-          food_filters = food_filters.concat(a);
-        }
-      }
-
-
-    let contentString = '<b>' + location.address.street + ", " + location.address.city + ", " + location.address.state + ", " + 
-	location.address.zipcode + '</b>' + '<p></p>' + '<div> Availability: </div>' + availability_filters + '<p></p>' + 
-        '<div> Types of Compost: </div>' + food_filters;
-    
     marker.addListener('click', () => {
       this.state.map.setCenter(marker.getPosition());
-      let infowindow = new window.google.maps.InfoWindow({      
-        content: contentString
+      let infowindow = new window.google.maps.InfoWindow({  
+
+        content: this.createContent(location)
       })
       infowindow.open(this.state.map, marker)
     })
-    
+
     return marker
   }
 
-  addMarkers() {
-    //this.map. // blah blah add markers
+  createContent(location) {
+    let foodList = [];
+    let thing = Object.keys(location.foodscraps)
+    for (let i = 0; i < thing.length; ++i) {
+      let k = thing[i]
+      console.log(k, location.foodscraps[k]);
+      if (location.foodscraps[k]) {
+        foodList.push(foodDisplayString[k]);
+      }
+    }
+    let foodString = foodList.join(", ");
 
+    let availabilityList = [];
+    let stuff = Object.keys(location.availability)
+    for (let i = 0; i < stuff.length; ++i) {
+      let key = stuff[i]
+      console.log(key, location.availability[key]);
+      if (location.availability[key]) {
+        availabilityList.push(displayString[key]);
+      }
+    }
+    let availabilityString = availabilityList.join(", ");
+
+    return '<b> ' + location.address.street + ", " + 
+      location.address.city + ", " + 
+      location.address.state + ", " + 
+      location.address.zipcode + "</b>" +   
+      "<br /> <p></p> Permitted Food Scraps: " + 
+      foodString + "<br /> <p></p> Availability: " + 
+      availabilityString;
+
+  }
+
+  addMarkers() {
     this.state.markers.forEach(
       (marker) => {marker.setMap(null)}
     )
+
     this.state.map.setCenter(this.props.searchLocation.latlng)
     let newMarkers = this.props.locations.map((location) => this.createMarker(location))
     if (this.props.locations.length > 1) {
@@ -94,9 +128,10 @@ class MapUI extends React.Component {
         }
     });
     newMarkers.push(searchMarker);
-    } 
-    this.setState({markers: newMarkers});
-
+    }
+    this.setState({
+      markers: newMarkers
+    });
   }
 
   componentDidUpdate(prevProps) {
@@ -112,6 +147,8 @@ class MapUI extends React.Component {
       </div>  
     )
   }
+
+
 }
 
 export default MapUI;

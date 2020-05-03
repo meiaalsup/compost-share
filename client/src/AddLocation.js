@@ -69,7 +69,8 @@ class AddLocation extends React.Component {
 	}
       },
       foodscraps: {
-        vegetables: true
+        vegetables: true,
+        fruits: true
       },
       availability: {
         monday_morn: document.getElementById('add_mon_morn').checked,
@@ -213,7 +214,11 @@ class AddLocation extends React.Component {
        </div>
        <p> </p>
        <div>
-          Availability (if adding or updating location)
+        <div className="AddLocation">
+          <subheading className="AddLocation-availability">
+            <t1>Availability (if adding or updating location)</t1>
+          </subheading>
+        </div>
           <div>
             <div className="AddLocation">
               <subheading className="AddLocation-day">
