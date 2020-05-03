@@ -3,12 +3,18 @@ const app = express()
 const port = process.env.PORT || 3000
 const cors = require('cors') // enables everyone!!!
 
-var config = require('./config')
+mongoUsername = process.env.MONGO_USERNAME || ""
+mongoPassword = process.env.MONGO_PASSWORD || ""
+if (process.env.NODE_ENV !== 'production') {
+  var config = require('./config')
+  mongoUsername = config.mongoUsername
+  mongoPassword = config.mongoPassword
+}
 
 const MongoClient = require('mongodb').MongoClient
 
-const connectionString = "mongodb+srv://" + config.mongoUsername + ":" + 
-  config.mongoPassword + 
+const connectionString = "mongodb+srv://" + mongoUsername + ":" + 
+  mongoPassword + 
   "@cluster0-j1n2z.mongodb.net/test?retryWrites=true&w=majority"
 app.use(cors())
 app.use(express.json()) // for parsing application/json
