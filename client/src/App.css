@@ -1,7 +1,8 @@
 :root {
-  --bg-color: #c6ecc6;
+  --bg-color: #093909;
+  --title-color: #fff;
   --subtitle-color: #b3ffec;
-  --text-color: #093909;
+  --text-color: #c6ecc6;
   --main-color-1: #8cd98c;
   --main-color-2: #67b26b;
   --location-color-1: #00e6ac;
@@ -21,7 +22,6 @@
   align-items: center;
   justify-content: center;
   font-size: calc(12px + 1vmin);
-  color: var(--text-color);
 }
 
 .title {
@@ -37,6 +37,7 @@
   display: flex;
   flex-flow: row wrap;
   align-items: center;
+  color: var(--bg-color);
 }
 
 #subtitle-heading {
@@ -45,7 +46,8 @@
 }
 #subtitle-body {
   font-size: calc(7px + 1vw);
-  width: 70%;
+  width: 66%;
+  padding: 2%;
 }
 
 h1 {
@@ -53,6 +55,7 @@ h1 {
   padding: 0px;
   font-family: "Arial Black", "Arial", sans-serif;
   font-size: calc(10px + 2.5vw);
+  color: var(--title-color);
 
 
 }
