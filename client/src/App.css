@@ -14,6 +14,7 @@
 
 
 .App-header {
+  font-family: "Arial", "Arial", sans-serif;
   min-height: 4vh;
   display: flex;
   flex-direction: column;
@@ -24,6 +25,7 @@
 }
 
 .title {
+  font-family: "Arial Black", "Arial", sans-serif;
   background: var(--bg-color);
   font-size: calc(8px + 1vw);
   padding: 3vh;
