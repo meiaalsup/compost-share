@@ -2,7 +2,7 @@ import React from 'react';
 import './Search.css';
 import { SERVER_URL } from './config';
 import Geocode from "react-geocode";
-import geocodeApiKey from './private'
+import {geocodeApiKey} from './private'
 
 Geocode.setApiKey(geocodeApiKey);
 Geocode.setLanguage("en");
@@ -335,7 +335,7 @@ class Search extends React.Component {
             </button>
           </div>
         </div>
-        <div class="input">
+        <div className="input">
           <div className="Search" id="AddressSearch">
             <div className="SearchHeading">
               Address

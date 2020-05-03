@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import Search from './Search';
 import MapUI from './MapUI';
-import googleApiKey from './private'
+import { googleApiKey } from './private'
 
 class App extends React.Component {
 
@@ -43,11 +43,11 @@ class App extends React.Component {
     return (
       <div className="App">
         <header className="App-header">
-          <div class="titlefull">
-            <div class='title'>
+          <div className="titlefull">
+            <div className='title'>
               <h1> Compost Share </h1>
             </div>
-            <div class="subtitle">
+            <div className="subtitle">
               <div id="subtitle-heading"> Find a Compost Location Near You! </div>
               <p id="subtitle-body"> Inspiration: Due to coronavirus budget cuts, New York City will be suspending curbside composting beginning on May 4, 2020 and ending in June 2021. Residents will no longer be able to discard food scraps and yard waste as compost and compostable items must be collected as garbage. Compost Share connects those with backyard or personal compost bins with those who want to continue to compost the waste from their homes. </p>
             </div>
