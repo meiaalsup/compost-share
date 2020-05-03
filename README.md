@@ -19,10 +19,15 @@ Authors: Jena Alsup, Meena Rajan, Meia Alsup
 
 
 ## Deployment
-* [Netlify](https://www.netlify/): deployment probably: compost-share.heroku.com
-   * Netlify functions for a back end server
-   * netlify-functions-express
+* [Netlify](https://www.netlify/) for React Front End
+    * `npm run-script build`
+    * `netlify deploy --dir=build --prod`
+
 * [Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs?singlepage=true)
+    * `git push heroku master`
+    * `heroku log --tail`
+
+
 ## Initial Setup Instructions
 
 ### Install Node
