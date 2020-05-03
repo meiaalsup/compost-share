@@ -1,6 +1,5 @@
 @import "App.css";
 
-
 .input {
   display: flex;
   flex-flow: column wrap;
@@ -55,6 +54,7 @@
   text: bold;
   text-transform: uppercase;
   text-decoration: none;
+  font-size: medium;
   padding: 15px;
   border-radius: 5px;
   display: inline-block;

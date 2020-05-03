@@ -43,7 +43,15 @@ class App extends React.Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1> Compost Share </h1>
+          <div class="titlefull">
+            <div class='title'>
+              <h1> Compost Share </h1>
+            </div>
+            <div class="subtitle">
+              <div id="subtitle-heading"> Find a Compost Location Near You! </div>
+              <p id="subtitle-body"> Inspiration: Due to coronavirus budget cuts, New York City will be suspending curbside composting beginning on May 4, 2020 and ending in June 2021. Residents will no longer be able to discard food scraps and yard waste as compost and compostable items must be collected as garbage. </p>
+            </div>
+          </div>
         </header>
 
         <MapUI mapScript={this.getGoogleMapScript()} locations={this.state.locations} searchLocation={this.state.searchLocation} showSearchLocation={this.state.showSearchLocation} />

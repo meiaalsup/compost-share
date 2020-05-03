@@ -1,5 +1,6 @@
 :root {
-  --bg-color: #d2f8d2;
+  --bg-color: #87f5a2;
+  --subtitle-color: #765432;
   --text-color: #093909;
   --main-color-1: #52e363;
   --main-color-2: #67b26b;
@@ -9,18 +10,46 @@
 
 .App {
   text-align: center;
-    font-family: Helvetica, fantasy, sans-serif;
 }
 
 
 .App-header {
-  font-family: "Arial Black", Gadget, sans-serif;
-  background-color: var(--bg-color);
-  min-height: 3vh;
+  min-height: 4vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + .5vmin);
+  font-size: calc(12px + 1vmin);
   color: var(--text-color);
+}
+
+.title {
+  background: var(--bg-color);
+  padding: 3vh;
+}
+
+.subtitle {
+  background: var(--subtitle-color);
+  margin-left: 2.5vw;
+  margin-right: 2.5vw;
+  padding: 2vw;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+
+#subtitle-heading {
+  font-weight: bolder;
+  font-size: calc(10px + 1vmin);
+  width: 30%;
+
+}
+#subtitle-body {
+  width: 70%;
+}
+
+h1 {
+  margin: 0px;
+  padding: 0px;
+
 }
