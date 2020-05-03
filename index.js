@@ -85,9 +85,6 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
         .catch(error => console.log(error))
     })
 
-    app.get('/test', (req, res) => {
-      res.send('Hello World')
-    })
     /** Get all locations **/
     app.get('/getAll', (req, res) => {
       usersCollection.find().toArray()   
