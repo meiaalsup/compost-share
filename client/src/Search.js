@@ -110,8 +110,12 @@ class Search extends React.Component {
        </div>
        <p> </p>	
        <div>
-	  Availability
-	  <div>
+        <div className="Search">
+          <subheading className="Search-availability">
+            <t1>Availability</t1>
+          </subheading>
+        </div>
+      <div>
       <div className="Search">
         <subheading className="Search-day">
             <t1>Mon:</t1>
