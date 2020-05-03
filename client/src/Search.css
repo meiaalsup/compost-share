@@ -77,12 +77,12 @@
 }
 
 .location {
-  background: linear-gradient(to right, var(--location-color-1), var(--location-color-2)) !important;
+  background: linear-gradient(to right, var(--location-color-1), var(--location-color-2));
 
 }
 
 #search {
-  background: linear-gradient(to right, var(--main-color-1), var(--text-color)) !important;
+  background: linear-gradient(to right, var(--main-color-1), var(--bg-color));
   margin-left: 1.5vw;
   margin-right: 1.5vw;
 }

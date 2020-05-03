@@ -117,30 +117,30 @@ class MapUI extends React.Component {
     )
 
     if (this.props.showSearchLocation || this.props.locations.length === 0) {
-    	this.state.map.setCenter(this.props.searchLocation.latlng)
+      this.state.map.setCenter(this.props.searchLocation.latlng)
     } else {
-	this.state.map.setCenter(this.props.locations[0].address.latlng)
+      this.state.map.setCenter(this.props.locations[0].address.latlng)
     }
     let newMarkers = this.props.locations.map((location) => this.createMarker(location))
     console.log(this.props)	
     if (this.props.locations.length > 0 && this.props.showSearchLocation) {
-        let searchMarker = new window.google.maps.Marker({
-      position: this.props.searchLocation.latlng,
-      map: this.state.map,
-      icon: {
+      let searchMarker = new window.google.maps.Marker({
+        position: this.props.searchLocation.latlng,
+        map: this.state.map,
+        icon: {
           url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png",
           scaledSize: new window.google.maps.Size(45, 45)
         }
-    });
-     searchMarker.addListener('click', () => {
-      this.state.map.setCenter(searchMarker.getPosition());
-      let infowindow = new window.google.maps.InfoWindow({
+      });
+      searchMarker.addListener('click', () => {
+        this.state.map.setCenter(searchMarker.getPosition());
+        let infowindow = new window.google.maps.InfoWindow({
 
-        content: 'Your Location'
+          content: 'Your Location'
+        })
+        infowindow.open(this.state.map, searchMarker)
       })
-      infowindow.open(this.state.map, searchMarker)
-    })
-    newMarkers.push(searchMarker);
+      newMarkers.push(searchMarker);
     }
     this.setState({
       markers: newMarkers
