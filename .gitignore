@@ -1,3 +1,4 @@
+client/src/private.js
 .DS_Store
 .netlify
 # Logs
