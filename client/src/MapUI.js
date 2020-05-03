@@ -118,7 +118,7 @@ class MapUI extends React.Component {
 
     this.state.map.setCenter(this.props.searchLocation.latlng)
     let newMarkers = this.props.locations.map((location) => this.createMarker(location))
-    if (this.props.locations.length > 1) {
+    if (this.props.locations.length > 0) {
         let searchMarker = new window.google.maps.Marker({
       position: this.props.searchLocation.latlng,
       map: this.state.map,
