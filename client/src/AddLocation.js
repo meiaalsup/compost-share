@@ -1,5 +1,7 @@
 import React from 'react';
 import './AddLocation.css';
+import SERVER_URL from './config';
+
 import Geocode from "react-geocode";
 Geocode.setApiKey("AIzaSyCpRMzf69BbqeV9IuswQUXeW19VXmJ3azg");
 Geocode.setLanguage("en");
@@ -29,7 +31,7 @@ class AddLocation extends React.Component {
     }
     let json = JSON.stringify(data)
     console.log(json)
-    fetch("http://localhost:3000/deletelocation", {
+    fetch(SERVER_URL + "/deletelocation", {
       method: "POST",
       body: json,
       headers: {
@@ -97,7 +99,7 @@ class AddLocation extends React.Component {
 
     let json = JSON.stringify(data)
     console.log(json)
-    fetch("http://localhost:3000/addlocation", {
+    fetch(SERVER_URL + "/addlocation", {
       method: "POST",
       body: json,
       headers: {
@@ -167,7 +169,7 @@ class AddLocation extends React.Component {
 
     let json = JSON.stringify(data)
     console.log(json)
-    fetch("http://localhost:3000/updatelocation", {
+    fetch(SERVER_URL + "/updatelocation", {
       method: "POST",
       body: json,
       headers: {

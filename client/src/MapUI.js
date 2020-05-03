@@ -64,7 +64,6 @@ class MapUI extends React.Component {
       map: this.state.map,
     });
     marker.addListener('click', () => {
-      this.state.map.setZoom(8);
       this.state.map.setCenter(marker.getPosition());
       let infowindow = new window.google.maps.InfoWindow({  
     

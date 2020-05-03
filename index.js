@@ -1,9 +1,7 @@
 const express = require('express')
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3000
 const cors = require('cors') // enables everyone!!!
-
-
 
 var config = require('./config')
 
@@ -85,9 +83,6 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
         .catch(error => console.log(error))
     })
 
-    app.get('/test', (req, res) => {
-      res.send('Hello World')
-    })
     /** Get all locations **/
     app.get('/getAll', (req, res) => {
       usersCollection.find().toArray()   
@@ -96,11 +91,12 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
         })
         .catch(error => console.log(error))
     })
+
+    app.get('/', (req, res) => res.send("hi"))
+    app.listen(port, () => console.log(`Compost-Share Server listening at http://localhost:${port}`))
     
   })
   .catch(error => console.error(error))
 
 
-app.get('/', (req, res) => res.send("hi"))
-app.listen(port, () => console.log(`Compost-Share Server listening at http://localhost:${port}`))
 
