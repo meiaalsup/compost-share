@@ -11,32 +11,8 @@ class App extends React.Component {
     super(props);
     console.log(process.env.NODE_ENV)
     this.state = {
-      locations: [
-      {
-        address: {
-          latlng: {
-            lat: -34.597,
-            lng: 150.644,
-          },
-        },
-        foodscraps: {
-          vegetables: true,
-          fruits: true
-        }
-      },
-      {
-        address: {
-          latlng: {
-            lat: -34.397,
-            lng: 150.544,
-          },
-        },
-        foodscraps: {
-          vegetables: true,
-          fruits: true
-        }
-      },
-    ]}
+      locations: []
+    }
   }
   
   getGoogleMapScript() {
@@ -47,7 +23,6 @@ class App extends React.Component {
   }
 
   updateLocations(locations) {
-    console.log('update location called with locations: ' + locations)
     this.setState({locations: locations})
   }
 
