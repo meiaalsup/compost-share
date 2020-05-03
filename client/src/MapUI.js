@@ -38,7 +38,7 @@ class MapUI extends React.Component {
       this.state.map.setZoom(8);
       this.state.map.setCenter(marker.getPosition());
       let infowindow = new window.google.maps.InfoWindow({      
-        content: location.address.street
+        content: location.address.street + ", " + location.address.city + ", " + location.address.state + ", " + location.address.zipcode 
       })
       infowindow.open(this.state.map, marker)
       console.log("marker clicked")
