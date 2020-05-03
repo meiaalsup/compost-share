@@ -108,30 +108,14 @@ class Search extends React.Component {
             <input type="text" id="search_zip" name="search_zip"/>
           </form>
        </div>
-       <p> </p>	
+       <p> </p> 
        <div>
         <div className="Search">
           <subheading className="Search-availability">
             <t1>Availability</t1>
           </subheading>
-        </div>
-      <div>
-      <div className="Search">
-        <subheading className="Search-day">
-            <t1>Mon:</t1>
-        </subheading>
-	       <input type="checkbox" id="search_mon_morn" name="search_mon_morn"/>
-	       <label htmlFor="search_mon_morn">8am-12pm </label>
-	       <input type="checkbox" id="search_mon_aft" name="search_mon_aft"/>
-	       <label htmlFor="search_mon_aft">12pm-4pm </label>
-	       <input type="checkbox" id="search_mon_eve" name="search_mon_eve"/>
-	       <label htmlFor="search_mon_eve">4pm-8pm </label>
-      </div>
-        </div>
-        <p> </p>	
+        </div>  
         <div>
-          Availability
-          <div>
             <div className="Search">
               <subheading className="Search-day">
                 <t1>Mon:</t1>
@@ -144,8 +128,7 @@ class Search extends React.Component {
               <label htmlFor="search_mon_eve">4pm-8pm </label>
             </div>
 
-          </div>
-          <div>
+           <div>
             <div className="Search">
               <subheading className="Search-day">
                 <t1>Tue:</t1>
@@ -221,13 +204,14 @@ class Search extends React.Component {
               <label htmlFor="search_sun_aft">12pm-4pm </label>
               <input type="checkbox" id="search_sun_eve" name="search_sun_eve" />
               <label htmlFor="search_sun_eve">4pm-8pm </label>
-            </div>	
+            </div>  
           </div>
         </div>
         <button onClick={() => 
             this.search()
           }>Search</button>
 
+      </div>
       </div>
     )
   }
