@@ -1,3 +1,4 @@
+config.js
 client/src/private.js
 .DS_Store
 .netlify
