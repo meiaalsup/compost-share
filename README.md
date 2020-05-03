@@ -1,4 +1,4 @@
-# [compost-share](compost-share.netlify.app)
+# [compost-share](https://compost-share.netlify.app)
 Cal Earth Hacks - Compost Sharing Map 
 
 
