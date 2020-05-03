@@ -25,6 +25,7 @@
 
 .title {
   background: var(--bg-color);
+  font-size: calc(8px + 1vw);
   padding: 3vh;
 }
 
@@ -39,12 +40,11 @@
 }
 
 #subtitle-heading {
-  font-weight: bolder;
-  font-size: calc(10px + 1vmin);
+  font-size: calc(8px + 2vw);
   width: 30%;
-
 }
 #subtitle-body {
+  font-size: calc(7px + 1vw);
   width: 70%;
 }
 
